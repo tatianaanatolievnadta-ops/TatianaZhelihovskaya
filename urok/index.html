@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Урок техспециалиста</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&family=Marck+Script&display=swap">
+<link rel="stylesheet" href="../css/fonts.css">
 <style>
 /* Одна колонка, сначала телефон: шапка → видео → что внутри → (по времени урока) истории и анкета → подвал */
 :root {
@@ -241,7 +239,7 @@ footer a { color: var(--wine); }
           <a class="btn btn-gold" id="formBtn" href="https://forms.gle/hMdY8fF6nCYJF6pC8" target="_blank" rel="noopener">Заполнить анкету</a>
           <a class="btn btn-ghost" id="tgBtn" href="https://t.me/texspec_tandem" target="_blank" rel="noopener">Канал в Telegram</a>
         </div>
-        <p class="note">Если Telegram у вас не открывается, это не мешает: анкета работает без него.</p>
+        <p class="note">Заполняя анкету, вы даёте <a href="../soglasie.html" style="color:#F0CF9E">согласие на обработку персональных данных</a> в соответствии с <a href="../privacy.html" style="color:#F0CF9E">политикой</a>. Если Telegram у вас не открывается, это не мешает: анкета работает без него.</p>
       </div>
     </div>
   </section>
@@ -251,7 +249,8 @@ footer a { color: var(--wine); }
   <div class="wrap">
     <p>Татьяна Желиховская, соучредитель академии «Тандем»</p>
     <p>Telegram: <a href="https://t.me/texspec_tandem" target="_blank" rel="noopener">t.me/texspec_tandem</a> · Instagram: texspec_tandem</p>
-    <p><a href="#" id="privacyLink">Политика конфиденциальности</a></p>
+    <p>Истории учениц и суммы дохода на этой странице и в уроке — их личные результаты. Они не гарантируют такой же доход: результат зависит от ваших действий и обстоятельств.</p>
+    <p class="docs"><a href="../oferta.html">Оферта</a> · <a href="../privacy.html">Политика обработки персональных данных</a> · <a href="../soglasie.html">Согласие на обработку данных</a> · <a href="../soglasie-rassylka.html">Согласие на рассылки</a> · <a href="../cookies.html">Политика cookie</a> · <a href="#" data-cookie-settings>Настройки cookie</a></p>
   </div>
 </footer>
 
@@ -267,7 +266,7 @@ const CONFIG = {
   CTA_AT: 490,            // 8:10 — анкета и Telegram
   FORM_URL: 'https://forms.gle/hMdY8fF6nCYJF6pC8',
   TG_URL: 'https://t.me/texspec_tandem',
-  PRIVACY_URL: '../privacy.html',        // ссылка на политику конфиденциальности
+  PRIVACY_URL: '',        // ссылка на политику конфиденциальности
 };
 /* ============================================== */
 
@@ -298,7 +297,6 @@ const $ = id => document.getElementById(id);
 $('formBtn').href = formUrl();
 $('fallbackHref').href = formUrl();
 $('tgBtn').href = CONFIG.TG_URL;
-if (CONFIG.PRIVACY_URL) $('privacyLink').href = CONFIG.PRIVACY_URL;
 $('formBtn').addEventListener('click', () => track('form_click'));
 $('fallbackHref').addEventListener('click', () => track('form_click'));
 
@@ -372,5 +370,6 @@ update(reached);
 applyHash();
 window.addEventListener('hashchange', applyHash);
 </script>
+<script src="../js/consent.js" defer></script>
 </body>
 </html>

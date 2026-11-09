@@ -6,9 +6,7 @@
   <title>Портфолио — Татьяна Желиховская</title>
   <meta name="description" content="Портфолио: сайты, приложения, нейрофото, видео. Чудо-Отдых, Мобильный доктор, ТАНДЕМ, Сонное царство, Уборка." />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/fonts.css" />
   <link rel="stylesheet" href="css/styles.css?v=blackgold2" />
 </head>
 <body>
@@ -292,30 +290,11 @@
     <div class="wrap">
       <p>© <span id="y"></span> Татьяна Желиховская</p>
       <p><a href="about.html">Обо мне</a> · <a href="cases.html">Кейсы</a> · <a href="courses.html">Курсы</a></p>
+      <p><a href="oferta.html">Оферта</a> · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="soglasie.html">Согласие на обработку данных</a> · <a href="cookies.html">Политика cookie</a> · <a href="dokumenty.html">Все документы</a> · <a href="#" data-cookie-settings>Настройки cookie</a></p>
     </div>
   </footer>
   <script src="js/main.js"></script>
-
-  <div id="cookie-banner" class="tj-cookie-banner" role="dialog" aria-label="Уведомление о cookie" hidden>
-    <p class="tj-cookie-text">
-      Мы используем cookie для работы сайта и статистики.
-      Продолжая пользоваться сайтом, вы соглашаетесь с
-      <a href="cookies.html">политикой cookie</a>
-      и
-      <a href="privacy.html">политикой конфиденциальности</a>.
-    </p>
-    <button type="button" id="cookie-accept" class="tj-cookie-btn">Понятно</button>
-  </div>
-  <script>
-  (function(){
-    var key='tj-cookie-accepted';
-    var banner=document.getElementById('cookie-banner');
-    var btn=document.getElementById('cookie-accept');
-    if(!banner) return;
-    try{ if(!localStorage.getItem(key)) banner.hidden=false; }catch(e){ banner.hidden=false; }
-    if(btn){ btn.addEventListener('click',function(){ try{ localStorage.setItem(key,'1'); }catch(e){} banner.hidden=true; }); }
-  })();
-  </script>
+  <script src="js/consent.js" defer></script>
 
 </body>
 </html>
