@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
@@ -15,22 +15,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=blackgold2" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Главная навигация">
     <div class="wrap">
       <a class="brand" href="index.html">
         <img src="assets/logo.png" alt="ТЖ" width="44" height="44" />
-        <span>Нейромама</span>
+        <span>Татьяна Желиховская</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-links">
         <a href="#courses">Курсы</a>
-        <a href="#about">Обо мне</a>
-        <a href="#reviews">Отзывы</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="about.html">Обо мне</a>
+        <a href="multiki.html">Мультики</a>
         <a href="#contacts">Контакты</a>
         <a class="btn btn-gold" href="https://t.me/AkademiyaTandem_TATIANAZHELIKH" target="_blank" rel="noopener">Подарок</a>
       </div>
@@ -78,102 +79,122 @@
       <div class="courses-grid">
         <article class="course-card reveal">
           <span class="badge-hit">Хит</span>
-          <div class="icon" aria-hidden="true">🎵</div>
-          <h3>Песня за 15 минут</h3>
-          <p>Песня-подарок с именем + первые заказы</p>
-          <div class="price-row">
-            <span class="price">990 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="pesnya">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/pesnya.jpg')"></div>
+          <div class="card-body">
+            <h3>Песня за 15 минут</h3>
+            <p>Песня-подарок с именем + первые заказы</p>
+            <div class="price-row">
+              <span class="price">990 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="pesnya">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🎄</div>
-          <h3>Новогоднее видео-поздравление</h3>
-          <p>Открытка-видео с песней</p>
-          <div class="price-row">
-            <span class="price">490 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="novyi-god">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/novyi-god.jpg')"></div>
+          <div class="card-body">
+            <h3>Новогоднее видео-поздравление</h3>
+            <p>Открытка-видео с песней</p>
+            <div class="price-row">
+              <span class="price">490 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="novyi-god">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">📸</div>
-          <h3>Нейрофотосессия</h3>
-          <p>30 образов себя без фотографа</p>
-          <div class="price-row">
-            <span class="price">990 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="fotosessiya">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/fotosessiya.jpg')"></div>
+          <div class="card-body">
+            <h3>Нейрофотосессия</h3>
+            <p>30 образов себя без фотографа</p>
+            <div class="price-row">
+              <span class="price">990 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="fotosessiya">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🖼</div>
-          <h3>Обложки к песням и постам</h3>
-          <p>Красивая обложка с фото за 5 минут</p>
-          <div class="price-row">
-            <span class="price">590 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="oblozhki">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/oblozhki.jpg')"></div>
+          <div class="card-body">
+            <h3>Обложки к песням и постам</h3>
+            <p>Красивая обложка с фото за 5 минут</p>
+            <div class="price-row">
+              <span class="price">590 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="oblozhki">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🎬</div>
-          <h3>Мультик о семье</h3>
-          <p>Мультфильм из фото семьи — подарок на 5 000 ₽+</p>
-          <div class="price-row">
-            <span class="price">1 490 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="multik">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/multik.jpg')"></div>
+          <div class="card-body">
+            <h3>Мультик о семье</h3>
+            <p>Мультфильм из фото семьи — подарок на 5 000 ₽+</p>
+            <div class="price-row">
+              <span class="price">1 490 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="multik">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">⚡</div>
-          <h3>Рилс Лайт</h3>
-          <p>15 рилс за 30 минут для блога</p>
-          <div class="price-row">
-            <span class="price">1 490 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="rils">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/rils.jpg')"></div>
+          <div class="card-body">
+            <h3>Рилс Лайт</h3>
+            <p>15 рилс за 30 минут для блога</p>
+            <div class="price-row">
+              <span class="price">1 490 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="rils">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🗣</div>
-          <h3>ИИ-аватар</h3>
-          <p>Видео, где «вы» говорите текст без съёмки</p>
-          <div class="price-row">
-            <span class="price">1 990 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="avatar">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/avatar.jpg')"></div>
+          <div class="card-body">
+            <h3>ИИ-аватар</h3>
+            <p>Видео, где «вы» говорите текст без съёмки</p>
+            <div class="price-row">
+              <span class="price">1 990 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="avatar">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🛒</div>
-          <h3>Карточки для маркетплейсов</h3>
-          <p>Карточки товара нейросетью</p>
-          <div class="price-row">
-            <span class="price">1 490 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="marketplace">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/marketplace.jpg')"></div>
+          <div class="card-body">
+            <h3>Карточки для маркетплейсов</h3>
+            <p>Карточки товара нейросетью</p>
+            <div class="price-row">
+              <span class="price">1 490 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="marketplace">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🌐</div>
-          <h3>Сайт без кода за вечер</h3>
-          <p>Сайт-визитка для своих услуг</p>
-          <div class="price-row">
-            <span class="price">2 500 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="sait">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/sait.jpg')"></div>
+          <div class="card-body">
+            <h3>Сайт без кода за вечер</h3>
+            <p>Сайт-визитка для своих услуг</p>
+            <div class="price-row">
+              <span class="price">2 500 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="sait">Купить</a>
+            </div>
           </div>
         </article>
 
         <article class="course-card reveal">
-          <div class="icon" aria-hidden="true">🤖</div>
-          <h3>Чат-бот для заявок</h3>
-          <p>Бот в Telegram, который сам принимает заказы</p>
-          <div class="price-row">
-            <span class="price">2 500 ₽</span>
-            <a class="btn btn-gold" href="#" data-buy="bot">Купить</a>
+          <div class="thumb" style="background-image:url('assets/course-thumbs/bot.jpg')"></div>
+          <div class="card-body">
+            <h3>Чат-бот для заявок</h3>
+            <p>Бот в Telegram, который сам принимает заказы</p>
+            <div class="price-row">
+              <span class="price">2 500 ₽</span>
+              <a class="btn btn-gold" href="#" data-buy="bot">Купить</a>
+            </div>
           </div>
         </article>
       </div>
@@ -315,8 +336,11 @@
         </div>
         <div class="footer-links">
           <a href="#courses">Курсы</a>
+          <a href="portfolio.html">Портфолио</a>
+          <a href="about.html">Обо мне</a>
           <a href="oferta.html">Оферта</a>
           <a href="privacy.html">Политика конфиденциальности</a>
+          <a href="cookies.html">Политика cookie</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -327,5 +351,27 @@
   </footer>
 
   <script src="assets/main.js"></script>
+
+  <div id="cookie-banner" class="tj-cookie-banner" role="dialog" aria-label="Уведомление о cookie" hidden>
+    <p class="tj-cookie-text">
+      Мы используем cookie для работы сайта и статистики.
+      Продолжая пользоваться сайтом, вы соглашаетесь с
+      <a href="cookies.html">политикой cookie</a>
+      и
+      <a href="privacy.html">политикой конфиденциальности</a>.
+    </p>
+    <button type="button" id="cookie-accept" class="tj-cookie-btn">Понятно</button>
+  </div>
+  <script>
+  (function(){
+    var key='tj-cookie-accepted';
+    var banner=document.getElementById('cookie-banner');
+    var btn=document.getElementById('cookie-accept');
+    if(!banner) return;
+    try{ if(!localStorage.getItem(key)) banner.hidden=false; }catch(e){ banner.hidden=false; }
+    if(btn){ btn.addEventListener('click',function(){ try{ localStorage.setItem(key,'1'); }catch(e){} banner.hidden=true; }); }
+  })();
+  </script>
+
 </body>
 </html>

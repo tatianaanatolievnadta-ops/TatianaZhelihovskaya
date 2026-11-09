@@ -10,3 +10,7 @@ Desktop.ini
 # Local
 *.log
 .env
+_inject_cookie_banner.py
+assets/otkrytka-qr-extract/
+assets/otkrytka-oborot-preview.png
+assets/portfolio/videos/avatar-demo-*.mp4

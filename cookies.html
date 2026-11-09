@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Политика cookie — Татьяна Желиховская</title>
+  <meta name="description" content="Использование cookie на сайте Татьяны Желиховской." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/cookies.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=blackgold2" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Навигация">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="ТЖ" width="44" height="44" />
+        <span>Нейромама</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#courses">Курсы</a>
+        <a href="index.html">На главную</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap legal">
+    <p class="eyebrow">Документы</p>
+    <h1>Политика использования cookie</h1>
+    <p style="color:var(--muted)">Редакция от 25 октября 2026.</p>
+
+    <h2 style="margin-top:2rem;font-size:1.05rem;color:var(--gold-2)">Что такое cookie</h2>
+    <p>Cookie — небольшие файлы, которые сайт сохраняет в браузере для работы страниц, запоминания согласия и статистики.</p>
+
+    <h2 style="margin-top:1.5rem;font-size:1.05rem;color:var(--gold-2)">Какие cookie используем</h2>
+    <ul style="margin:0.75rem 0 0 1.2rem;padding:0;list-style:disc;color:var(--muted)">
+      <li style="margin-top:0.4rem">Технические — для корректной работы сайта и баннера согласия.</li>
+      <li style="margin-top:0.4rem">Аналитические — при подключении счётчиков посещаемости (в том числе Яндекс Метрики).</li>
+    </ul>
+
+    <h2 style="margin-top:1.5rem;font-size:1.05rem;color:var(--gold-2)">Как отключить</h2>
+    <p>Вы можете удалить или ограничить cookie в настройках браузера. Часть функций сайта при этом может работать хуже. Отказ от аналитики не мешает написать в Telegram <a href="https://t.me/tatiana_tandem" style="color:var(--gold-2);text-decoration:underline">@tatiana_tandem</a>.</p>
+
+    <p style="margin-top:1rem">Подробнее об обработке данных — <a href="privacy.html" style="color:var(--gold-2);text-decoration:underline">политика конфиденциальности</a>.</p>
+
+    <p style="margin-top:28px"><a class="btn btn-ghost" href="index.html">← На главную</a></p>
+  </main>
+
+  <script src="assets/main.js"></script>
+
+  <div id="cookie-banner" class="tj-cookie-banner" role="dialog" aria-label="Уведомление о cookie" hidden>
+    <p class="tj-cookie-text">
+      Мы используем cookie для работы сайта и статистики.
+      Продолжая пользоваться сайтом, вы соглашаетесь с
+      <a href="cookies.html">политикой cookie</a>
+      и
+      <a href="privacy.html">политикой конфиденциальности</a>.
+    </p>
+    <button type="button" id="cookie-accept" class="tj-cookie-btn">Понятно</button>
+  </div>
+  <style>
+    .tj-cookie-banner{
+      position:fixed;z-index:90;
+      left:max(.75rem,env(safe-area-inset-left));
+      right:max(.75rem,env(safe-area-inset-right));
+      bottom:max(.75rem,env(safe-area-inset-bottom));
+      max-width:26rem;margin:0 auto;
+      padding:1rem 1.1rem 1.05rem;
+      border-radius:16px;
+      border:1px solid rgba(227,178,60,.45);
+      background:rgba(8,7,6,.96);
+      backdrop-filter:blur(12px);
+      box-shadow:0 12px 40px rgba(0,0,0,.45);
+      font-family:Manrope,system-ui,sans-serif;
+      color:rgba(251,247,239,.78);
+    }
+    .tj-cookie-banner[hidden]{display:none!important}
+    @media (min-width:720px){
+      .tj-cookie-banner{left:auto;right:max(.9rem,env(safe-area-inset-right));margin:0;max-width:22rem}
+    }
+    .tj-cookie-text{margin:0;font-size:.82rem;line-height:1.55}
+    .tj-cookie-text a{color:#e0c08a;text-decoration:underline;text-underline-offset:2px}
+    .tj-cookie-btn{
+      display:block;width:100%;margin-top:.85rem;
+      border:none;border-radius:999px;cursor:pointer;
+      padding:.7rem 1rem;
+      font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+      color:#111;
+      background:linear-gradient(135deg,#c5a070,#e0c08a);
+    }
+    .tj-cookie-btn:hover{filter:brightness(1.05)}
+  </style>
+  <script>
+  (function(){
+    var key='tj-cookie-accepted';
+    var banner=document.getElementById('cookie-banner');
+    var btn=document.getElementById('cookie-accept');
+    if(!banner) return;
+    try{ if(!localStorage.getItem(key)) banner.hidden=false; }catch(e){ banner.hidden=false; }
+    if(btn){ btn.addEventListener('click',function(){ try{ localStorage.setItem(key,'1'); }catch(e){} banner.hidden=true; }); }
+  })();
+  </script>
+
+</body>
+</html>

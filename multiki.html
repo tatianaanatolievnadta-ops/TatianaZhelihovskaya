@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мультики — Татьяна Желиховская</title>
+  <meta name="description" content="Мультики и короткие ролики: герои серий, просмотр на месте, YouTube Shorts @tandem.corparation." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=blackgold2" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Главная навигация">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.png" alt="ТЖ" width="44" height="44" />
+        <span>Татьяна Желиховская</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="index.html#courses">Курсы</a>
+        <a href="portfolio.html">Портфолио</a>
+        <a href="about.html">Обо мне</a>
+        <a href="multiki.html" aria-current="page">Мультики</a>
+        <a class="btn btn-gold" href="https://www.youtube.com/@tandem.corparation/shorts" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero wrap">
+    <p class="eyebrow">Видео · мультики</p>
+    <h1>Герои видны — серии листаются</h1>
+    <p>Смотри серии прямо здесь. Ниже — Shorts на YouTube и кадры персонажей.</p>
+  </header>
+
+  <section id="viewer" style="padding-top:8px;border-top:none">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Просмотр</p>
+        <h2>Серия «Про ЛЖ» и пиксарт</h2>
+        <p>Выбери эпизод слева или листай стрелками — герои на превью и в ролике.</p>
+      </div>
+
+      <div class="viewer" id="multiki-viewer" data-viewer>
+        <div class="viewer-stage">
+          <video id="viewer-video" class="viewer-video" controls playsinline preload="metadata"
+            poster="assets/portfolio/multiki/hero-lj-1.jpg"
+            src="assets/portfolio/multiki/lj-1.mp4"></video>
+          <div class="viewer-nav">
+            <button type="button" class="viewer-btn" data-prev aria-label="Предыдущий">←</button>
+            <p class="viewer-caption" id="viewer-caption">Про ЛЖ · серия 1</p>
+            <button type="button" class="viewer-btn" data-next aria-label="Следующий">→</button>
+          </div>
+        </div>
+        <div class="viewer-thumbs" role="list">
+          <button type="button" class="viewer-thumb is-active" role="listitem" data-src="assets/portfolio/multiki/lj-1.mp4" data-poster="assets/portfolio/multiki/hero-lj-1.jpg" data-title="Про ЛЖ · серия 1">
+            <img src="assets/portfolio/multiki/hero-lj-1.jpg" alt="Герой серии 1" width="320" height="180" />
+            <span>1</span>
+          </button>
+          <button type="button" class="viewer-thumb" role="listitem" data-src="assets/portfolio/multiki/lj-2.mp4" data-poster="assets/portfolio/multiki/hero-lj-2.jpg" data-title="Про ЛЖ · серия 2">
+            <img src="assets/portfolio/multiki/hero-lj-2.jpg" alt="Герой серии 2" width="320" height="180" />
+            <span>2</span>
+          </button>
+          <button type="button" class="viewer-thumb" role="listitem" data-src="assets/portfolio/multiki/lj-3.mp4" data-poster="assets/portfolio/multiki/hero-lj-3.jpg" data-title="Про ЛЖ · серия 3">
+            <img src="assets/portfolio/multiki/hero-lj-3.jpg" alt="Герой серии 3" width="320" height="180" />
+            <span>3</span>
+          </button>
+          <button type="button" class="viewer-thumb" role="listitem" data-src="assets/portfolio/multiki/lj-4.mp4" data-poster="assets/portfolio/multiki/hero-lj-4.jpg" data-title="Про ЛЖ · серия 4">
+            <img src="assets/portfolio/multiki/hero-lj-4.jpg" alt="Герой серии 4" width="320" height="180" />
+            <span>4</span>
+          </button>
+          <button type="button" class="viewer-thumb" role="listitem" data-src="assets/portfolio/multiki/lj-5.mp4" data-poster="assets/portfolio/multiki/hero-lj-5.jpg" data-title="Про ЛЖ · серия 5">
+            <img src="assets/portfolio/multiki/hero-lj-5.jpg" alt="Герой серии 5" width="320" height="180" />
+            <span>5</span>
+          </button>
+          <button type="button" class="viewer-thumb" role="listitem" data-src="assets/portfolio/multiki/pix-2.mp4" data-poster="assets/portfolio/multiki/hero-pix-2.jpg" data-title="Пиксарт · ролик">
+            <img src="assets/portfolio/multiki/hero-pix-2.jpg" alt="Герой пиксарт" width="320" height="180" />
+            <span>Пикс</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="heroes">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Герои</p>
+        <h2>Персонажи серий</h2>
+        <p>Листай галерею — лица героев крупно.</p>
+      </div>
+      <div class="media-rail">
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-01.jpg" alt="Герой 1" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Пиксарт</p><h3>Кадр 1</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-02.jpg" alt="Герой 2" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Пиксарт</p><h3>Кадр 2</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-03.jpg" alt="Герой 3" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Пиксарт</p><h3>Кадр 3</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-04.jpg" alt="Герой 4" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Пиксарт</p><h3>Кадр 4</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-05.jpg" alt="ЛЖ 1" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Про ЛЖ</p><h3>Серия · 1</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-09.jpg" alt="Стиль" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Стиль</p><h3>Яп · 1</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/local-10.jpg" alt="Стиль 2" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Стиль</p><h3>Яп · 2</h3></div>
+        </article>
+        <article class="media-card media-card-still">
+          <img src="assets/portfolio/multiki/mult-02.jpg" alt="Герой" width="400" height="500" loading="lazy" />
+          <div class="media-meta"><p class="tag">Серия</p><h3>Портрет</h3></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="youtube">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">YouTube Shorts</p>
+        <h2>@tandem.corparation</h2>
+        <p>Нажми на карточку — откроется ролик.</p>
+      </div>
+
+      <div class="folio-grid" id="yt-grid">
+        <a class="folio" href="https://www.youtube.com/shorts/BrWSjXflt8c" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-BrWSjXflt8c.jpg" alt="Мультик Путь к себе" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Shorts</p>
+            <h3>Мультик «Путь к себе»</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/695ah9fSeiw" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-695ah9fSeiw.jpg" alt="Голоса-борьба 1" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Серия</p>
+            <h3>Голоса-борьба · 1</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/Mn-p09q1HnQ" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-Mn-p09q1HnQ.jpg" alt="Голоса-борьба 2" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Серия</p>
+            <h3>Голоса-борьба · 2</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/yqFIloePVtU" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-yqFIloePVtU.jpg" alt="Голоса-борьба 3" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Серия</p>
+            <h3>Голоса-борьба · 3</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/ES-Cs4A7YnQ" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-ES-Cs4A7YnQ.jpg" alt="Не хочу в садик" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Серия</p>
+            <h3>Не хочу в садик · 1</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/E9f6PxOlhBU" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-E9f6PxOlhBU.jpg" alt="Успехи 2" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Серия</p>
+            <h3>Успехи · 2</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/JEzg6Utvs9I" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-JEzg6Utvs9I.jpg" alt="Валера" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Shorts</p>
+            <h3>Валера</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/83g2Q6uBiHI" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-83g2Q6uBiHI.jpg" alt="А тому ли я дала" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Shorts</p>
+            <h3>А тому ли я дала?</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+        <a class="folio" href="https://www.youtube.com/shorts/PiuHRzUu_hg" target="_blank" rel="noopener">
+          <div class="folio-shot"><img src="assets/portfolio/multiki/yt-PiuHRzUu_hg.jpg" alt="Делать мультики в боте" width="640" height="440" loading="lazy" /></div>
+          <div class="folio-body">
+            <p class="tag">Shorts</p>
+            <h3>Делать мультики в боте</h3>
+            <span class="folio-link">Смотреть на YouTube →</span>
+          </div>
+        </a>
+      </div>
+
+      <p style="margin-top:28px">
+        <a class="btn btn-primary" href="https://www.youtube.com/@tandem.corparation/shorts" target="_blank" rel="noopener">Все Shorts на YouTube</a>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Нужен мультик под заказ?</h2>
+        <p>В директ — слово МУЛЬТИК или УРОК.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="portfolio.html">К портфолио</a>
+          <a class="btn btn-ghost" href="https://vk.ru/neuromoms" target="_blank" rel="noopener">ВК Нейромамы</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="y"></span> Татьяна Желиховская</p>
+      <p><a href="portfolio.html">Портфолио</a> · <a href="courses.html">Курсы</a> · <a href="about.html">Обо мне</a></p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+
+  <div id="cookie-banner" class="tj-cookie-banner" role="dialog" aria-label="Уведомление о cookie" hidden>
+    <p class="tj-cookie-text">
+      Мы используем cookie для работы сайта и статистики.
+      Продолжая пользоваться сайтом, вы соглашаетесь с
+      <a href="cookies.html">политикой cookie</a>
+      и
+      <a href="privacy.html">политикой конфиденциальности</a>.
+    </p>
+    <button type="button" id="cookie-accept" class="tj-cookie-btn">Понятно</button>
+  </div>
+  <style>
+    .tj-cookie-banner{
+      position:fixed;z-index:90;
+      left:max(.75rem,env(safe-area-inset-left));
+      right:max(.75rem,env(safe-area-inset-right));
+      bottom:max(.75rem,env(safe-area-inset-bottom));
+      max-width:26rem;margin:0 auto;
+      padding:1rem 1.1rem 1.05rem;
+      border-radius:16px;
+      border:1px solid rgba(227,178,60,.45);
+      background:rgba(8,7,6,.96);
+      backdrop-filter:blur(12px);
+      box-shadow:0 12px 40px rgba(0,0,0,.45);
+      font-family:Manrope,system-ui,sans-serif;
+      color:rgba(251,247,239,.78);
+    }
+    .tj-cookie-banner[hidden]{display:none!important}
+    @media (min-width:720px){
+      .tj-cookie-banner{left:auto;right:max(.9rem,env(safe-area-inset-right));margin:0;max-width:22rem}
+    }
+    .tj-cookie-text{margin:0;font-size:.82rem;line-height:1.55}
+    .tj-cookie-text a{color:#e0c08a;text-decoration:underline;text-underline-offset:2px}
+    .tj-cookie-btn{
+      display:block;width:100%;margin-top:.85rem;
+      border:none;border-radius:999px;cursor:pointer;
+      padding:.7rem 1rem;
+      font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+      color:#111;
+      background:linear-gradient(135deg,#c5a070,#e0c08a);
+    }
+    .tj-cookie-btn:hover{filter:brightness(1.05)}
+  </style>
+  <script>
+  (function(){
+    var key='tj-cookie-accepted';
+    var banner=document.getElementById('cookie-banner');
+    var btn=document.getElementById('cookie-accept');
+    if(!banner) return;
+    try{ if(!localStorage.getItem(key)) banner.hidden=false; }catch(e){ banner.hidden=false; }
+    if(btn){ btn.addEventListener('click',function(){ try{ localStorage.setItem(key,'1'); }catch(e){} banner.hidden=true; }); }
+  })();
+  </script>
+
+</body>
+</html>
