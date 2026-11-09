@@ -54,7 +54,7 @@ a { color: inherit; }
 .hero { background: #3A0A12; color: #FFF6EA; }
 .hero .wrap { padding-block: 28px 32px; display: flex; flex-direction: column; gap: 14px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.mono { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #4A0D18; box-shadow: 0 0 0 3px #C9A063; font-family: var(--display); font-size: 18px; color: #F0CF9E; flex-shrink: 0; }
+.mono { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: 50% 15%; display: grid; place-items: center; background: #4A0D18; box-shadow: 0 0 0 3px #C9A063; font-family: var(--display); font-size: 18px; color: #F0CF9E; flex-shrink: 0; }
 .brand small { display: block; font-size: 13px; color: #EAD6C6; letter-spacing: .04em; }
 .brand b { font-weight: 700; font-size: 15px; }
 .hero h1 { font-size: clamp(30px, 7.4vw, 50px); }
@@ -147,7 +147,7 @@ footer a { color: var(--wine); }
 <header class="hero">
   <div class="wrap">
     <div class="brand">
-      <div class="mono" aria-hidden="true">ТЖ</div>
+      <img class="mono" src="../assets/tatiana.jpg" alt="Татьяна Желиховская" width="64" height="64">
       <div><b>Татьяна Желиховская</b><small>Академия «Тандем» · бесплатный урок</small></div>
     </div>
     <h1>Технический специалист <em>онлайн-школ</em> с нуля</h1>
