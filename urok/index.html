@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Урок техспециалиста</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&family=Marck+Script&display=swap">
+<style>
+/* Одна колонка, сначала телефон: шапка → видео → что внутри → (по времени урока) истории и анкета → подвал */
+:root {
+  --bg: #FFF8F0;
+  --surface: #F7EFE6;
+  --surface-2: #F3DFCD;
+  --fg: #2A1712;
+  --muted: #6A4B43;
+  --wine: #7A1526;
+  --wine-deep: #3A0A12;
+  --gold: #C9A063;
+  --gold-soft: #F0CF9E;
+  --on-wine: #FFF6EA;
+  --line: #E6D3C2;
+  --display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --body: 'Nunito', 'Segoe UI', Arial, sans-serif;
+  --script: 'Marck Script', 'Brush Script MT', cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1E0A0E; --surface: #2B1015; --surface-2: #3A141B; --fg: #F6E9DC; --muted: #CDB3A6;
+    --wine: #E39AA6; --wine-deep: #12050799; --gold: #D9B47A; --gold-soft: #F0CF9E; --on-wine: #FFF6EA; --line: #4A1E25;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1E0A0E; --surface: #2B1015; --surface-2: #3A141B; --fg: #F6E9DC; --muted: #CDB3A6;
+  --wine: #E39AA6; --wine-deep: #12050799; --gold: #D9B47A; --gold-soft: #F0CF9E; --on-wine: #FFF6EA; --line: #4A1E25;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.1; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 40px; }
+.eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--wine); }
+.script { font-family: var(--script); font-weight: 400; color: var(--wine); }
+
+/* Шапка: винная плашка, как в профиле */
+.hero { background: #3A0A12; color: #FFF6EA; }
+.hero .wrap { padding-block: 28px 32px; display: flex; flex-direction: column; gap: 14px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.mono { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #4A0D18; box-shadow: 0 0 0 3px #C9A063; font-family: var(--display); font-size: 18px; color: #F0CF9E; flex-shrink: 0; }
+.brand small { display: block; font-size: 13px; color: #EAD6C6; letter-spacing: .04em; }
+.brand b { font-weight: 700; font-size: 15px; }
+.hero h1 { font-size: clamp(30px, 7.4vw, 50px); }
+.hero h1 em { font-style: italic; color: #F0CF9E; font-weight: 500; }
+.hero .lead { color: #EAD6C6; font-size: 17px; max-width: 34em; }
+.hero .script { color: #F0CF9E; font-size: 26px; line-height: 1.1; }
+
+/* Видео */
+.player { margin-top: -4px; }
+.screen { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: #12050A; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 30px -16px rgba(58,10,18,.55); }
+.screen video, .screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+.poster { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; border: 0; cursor: pointer; color: #FFF6EA; font: inherit;
+  background: radial-gradient(120% 90% at 30% 20%, #6B1626 0%, #3A0A12 55%, #1E0508 100%); }
+.poster .play { width: 78px; height: 78px; border-radius: 50%; background: #F0CF9E; display: grid; place-items: center; transition: transform .2s ease; }
+.poster:hover .play { transform: scale(1.06); }
+.poster .play svg { margin-left: 5px; }
+.poster span { font-size: 15px; font-weight: 600; letter-spacing: .02em; }
+.poster .dur { font-size: 13px; color: #EAD6C6; font-weight: 400; }
+.track { height: 6px; background: var(--line); border-radius: 6px; margin-top: 12px; overflow: hidden; }
+.track i { display: block; height: 100%; width: 0; background: var(--wine); transition: width .4s linear; }
+.track-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.fallback-link { margin-top: 10px; font-size: 15px; }
+.fallback-link a { color: var(--wine); font-weight: 700; }
+
+/* Что внутри: настоящий список из шести тем урока */
+.learn { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 18px; border-top: 1px solid var(--line); }
+.learn li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.learn li b { font-family: var(--display); color: var(--wine); font-size: 20px; line-height: 1.2; font-weight: 600; }
+.learn ol, ol.learn { list-style: none; padding: 0; margin-top: 18px; }
+.learn-note { margin-top: 16px; color: var(--muted); }
+
+/* Закрытые блоки */
+.locked { border: 1.5px dashed var(--line); border-radius: 16px; padding: 18px; display: flex; gap: 14px; align-items: center; color: var(--muted); font-size: 15px; }
+.locked svg { flex-shrink: 0; color: var(--gold); }
+.reveal { animation: rise .6s ease both; }
+@keyframes rise { from { opacity: .2; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal { animation: none; } .track i, .poster .play { transition: none; } }
+
+/* Истории учениц */
+.stories { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+.story { background: var(--surface); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.story header { display: flex; align-items: center; gap: 12px; }
+.ava { width: 52px; height: 52px; border-radius: 50%; background: var(--surface-2); display: grid; place-items: center; font-family: var(--display); color: var(--wine); font-size: 20px; flex-shrink: 0; box-shadow: 0 0 0 2px var(--gold); }
+.story h3 { font-size: 21px; }
+.story .city { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.story .num { font-family: var(--display); font-size: 30px; color: var(--wine); line-height: 1.1; }
+.story .num small { font-family: var(--body); font-size: 15px; color: var(--muted); display: block; margin-top: 2px; }
+.stories-end { margin-top: 16px; font-size: 26px; }
+
+/* Анкета */
+.cta { background: #3A0A12; color: #FFF6EA; }
+.cta .wrap { padding-block: 40px 44px; display: flex; flex-direction: column; gap: 18px; }
+.cta .eyebrow { color: #F0CF9E; }
+.cta h2 { font-size: clamp(28px, 6.4vw, 42px); }
+.perks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.perks li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; color: #EAD6C6; }
+.perks svg { margin-top: 3px; color: #F0CF9E; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 14px 28px; border-radius: 999px; font-weight: 700; font-size: 18px; text-decoration: none; border: 0; cursor: pointer; }
+.btn-gold { background: #F0CF9E; color: #3A0A12; }
+.btn-gold:hover { background: #F6DDB6; }
+.btn-ghost { background: transparent; color: #FFF6EA; box-shadow: inset 0 0 0 1.5px #C9A063; font-size: 16px; min-height: 50px; }
+.btn-ghost:hover { background: rgba(240,207,158,.08); }
+.cta .actions { display: flex; flex-direction: column; gap: 12px; }
+.cta .note { font-size: 14px; color: #CDB3A6; }
+
+/* Подвал */
+footer .wrap { padding-block: 28px 36px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--muted); }
+footer a { color: var(--wine); }
+.preview-bar { background: var(--surface-2); color: var(--fg); font-size: 13px; }
+.preview-bar .wrap { padding-block: 8px; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.preview-bar button { font: inherit; font-weight: 700; color: var(--wine); background: none; border: 0; padding: 4px 0; cursor: pointer; text-decoration: underline; }
+
+@media (min-width: 640px) {
+  body { font-size: 18px; }
+  .band { padding-block: 56px; }
+  .stories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cta .actions { flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="preview-bar" id="previewBar" hidden>
+  <div class="wrap">
+    <span>Режим проверки: блоки открыты сразу.</span>
+    <button type="button" id="resetBtn">Сбросить и смотреть как гость</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mono" aria-hidden="true">ТЖ</div>
+      <div><b>Татьяна Желиховская</b><small>Академия «Тандем» · бесплатный урок</small></div>
+    </div>
+    <h1>Технический специалист <em>онлайн-школ</em> с нуля</h1>
+    <p class="lead">Профессия, в которой можно работать удалённо, без кода и без своего блога.</p>
+    <p class="script">8 минут, чтобы понять, ваше ли это</p>
+  </div>
+</header>
+
+<main>
+  <section class="band" aria-labelledby="lessonTitle">
+    <div class="wrap player">
+      <h2 id="lessonTitle" class="eyebrow" style="font-family:var(--body);margin-bottom:12px">Урок · 8:34</h2>
+      <div class="screen" id="screen">
+        <button class="poster" type="button" id="poster" aria-label="Смотреть урок">
+          <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="#3A0A12" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg></div>
+          <span>Смотреть урок</span>
+          <span class="dur">8 минут 34 секунды</span>
+        </button>
+      </div>
+      <div class="track" aria-hidden="true"><i id="bar"></i></div>
+      <div class="track-meta"><span id="tNow">0:00</span><span>8:34</span></div>
+      <p class="fallback-link" id="fallbackLink" hidden>Если кнопка под уроком не появилась, <a id="fallbackHref" href="#" target="_blank" rel="noopener">откройте анкету по этой ссылке</a>.</p>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0" aria-labelledby="learnTitle">
+    <div class="wrap">
+      <p class="eyebrow">Что внутри</p>
+      <h2 id="learnTitle" style="font-size:clamp(26px,5.6vw,36px);margin-top:8px">На этом уроке вы узнаете</h2>
+      <ol class="learn">
+        <li><b>1</b><span>Что делает техспециалист и за что ему платят</span></li>
+        <li><b>2</b><span>Как выглядит работа изнутри, на двух понятных задачах</span></li>
+        <li><b>3</b><span>Сколько можно зарабатывать на старте и дальше</span></li>
+        <li><b>4</b><span>Где брать первых клиентов, даже без своего блога</span></li>
+        <li><b>5</b><span>Кому подходит эта профессия</span></li>
+        <li><b>6</b><span>Как действующему техспециалисту поднять чек</span></li>
+      </ol>
+      <p class="learn-note">К концу урока вы сможете честно ответить себе, подходит вам эта профессия или нет.</p>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0" aria-labelledby="storiesTitle">
+    <div class="wrap">
+      <div class="locked" id="storiesLock">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+        <span>Истории учениц откроются на 6-й минуте урока.</span>
+      </div>
+      <div id="stories" hidden>
+        <p class="eyebrow">Истории учениц</p>
+        <h2 id="storiesTitle" style="font-size:clamp(26px,5.6vw,36px);margin-top:8px">Они начинали с того же места, что и вы</h2>
+        <div class="stories">
+          <article class="story">
+            <header><div class="ava" aria-hidden="true">Н</div><div><h3>Наталья</h3><p class="city">Смоленск</p></div></header>
+            <p>Мама двоих маленьких детей. Пришла из декрета за доходом без отрыва от семьи.</p>
+            <p class="num">20 000 ₽<small>первый заказ ещё во время учёбы</small></p>
+            <p class="num">100 000 ₽<small>в месяц через месяц, 2–3 часа в день</small></p>
+          </article>
+          <article class="story">
+            <header><div class="ava" aria-hidden="true">Н</div><div><h3>Наталья</h3><p class="city">Тольятти</p></div></header>
+            <p>Училась на других курсах, но боялась брать клиентов: «а вдруг не справлюсь».</p>
+            <p>На обучении закрыла пробелы в практике.</p>
+            <p class="num">Своя школа<small>сама ведёт крупную онлайн-школу</small></p>
+          </article>
+          <article class="story">
+            <header><div class="ava" aria-hidden="true">Н</div><div><h3>Наталья</h3><p class="city">Витебск</p></div></header>
+            <p>Пришла уже специалистом, но неуверенным, с разрозненными знаниями. Разобралась в вебинарах и ботах, нашла новых клиентов.</p>
+            <p class="num">×2,5<small>рост дохода</small></p>
+          </article>
+        </div>
+        <p class="script stories-end">Три истории, и у всех получилось</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" aria-labelledby="ctaTitle">
+    <div class="wrap">
+      <div class="locked" id="ctaLock" style="border-color:#6B2A35;color:#EAD6C6">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F0CF9E" stroke-width="1.6" aria-hidden="true"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>
+        <span>Анкета предзаписи откроется в конце урока, на 8-й минуте.</span>
+      </div>
+      <div id="cta" hidden style="display:flex;flex-direction:column;gap:18px">
+        <p class="eyebrow">Первый шаг</p>
+        <h2 id="ctaTitle">Заполните анкету предзаписи</h2>
+        <p style="color:#EAD6C6">Анкета ни к чему не обязывает и даёт три вещи:</p>
+        <ul class="perks">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg><span>Бесплатная консультация: подходит ли вам профессия и сколько вы сможете зарабатывать в своё свободное время</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg><span>Самая выгодная стоимость участия</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg><span>Приоритет при зачислении</span></li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-gold" id="formBtn" href="https://forms.gle/hMdY8fF6nCYJF6pC8" target="_blank" rel="noopener">Заполнить анкету</a>
+          <a class="btn btn-ghost" id="tgBtn" href="https://t.me/texspec_tandem" target="_blank" rel="noopener">Канал в Telegram</a>
+        </div>
+        <p class="note">Если Telegram у вас не открывается, это не мешает: анкета работает без него.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Татьяна Желиховская, соучредитель академии «Тандем»</p>
+    <p>Telegram: <a href="https://t.me/texspec_tandem" target="_blank" rel="noopener">t.me/texspec_tandem</a> · Instagram: texspec_tandem</p>
+    <p><a href="#" id="privacyLink">Политика конфиденциальности</a></p>
+  </div>
+</footer>
+
+<script>
+/* ===== НАСТРОЙКИ: меняйте только этот блок ===== */
+const CONFIG = {
+  // Прямая ссылка на файл .mp4: тогда блоки открываются по времени в самом видео.
+  VIDEO_MP4: '',
+  // Или ссылка на встраиваемый плеер (Kinescope, VK Видео, Rutube): тогда блоки открываются по таймеру от нажатия.
+  VIDEO_EMBED: '',
+  DURATION: 514,          // 8:34
+  STORIES_AT: 361,        // 6:01 — истории учениц
+  CTA_AT: 490,            // 8:10 — анкета и Telegram
+  FORM_URL: 'https://forms.gle/hMdY8fF6nCYJF6pC8',
+  TG_URL: 'https://t.me/texspec_tandem',
+  PRIVACY_URL: '../privacy.html',        // ссылка на политику конфиденциальности
+};
+/* ============================================== */
+
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+  del(k) { try { localStorage.removeItem(k); } catch (e) {} },
+};
+
+// Четыре события из ТЗ. Подключите сюда Яндекс Метрику: ym(ID, 'reachGoal', name)
+function track(name) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: name });
+  if (typeof window.ym === 'function' && window.YM_ID) window.ym(window.YM_ID, 'reachGoal', name);
+}
+
+// UTM-метки: сохраняем и передаём в ссылку анкеты
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'tg'];
+const params = new URLSearchParams(location.search);
+UTM_KEYS.forEach(k => { if (params.get(k)) store.set('lesson_' + k, params.get(k)); });
+function formUrl() {
+  const u = new URL(CONFIG.FORM_URL);
+  UTM_KEYS.forEach(k => { const v = store.get('lesson_' + k); if (v) u.searchParams.set(k, v); });
+  return u.toString();
+}
+
+const $ = id => document.getElementById(id);
+$('formBtn').href = formUrl();
+$('fallbackHref').href = formUrl();
+$('tgBtn').href = CONFIG.TG_URL;
+if (CONFIG.PRIVACY_URL) $('privacyLink').href = CONFIG.PRIVACY_URL;
+$('formBtn').addEventListener('click', () => track('form_click'));
+$('fallbackHref').addEventListener('click', () => track('form_click'));
+
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+let reached = Number(store.get('lesson_reached') || 0);
+
+function openBlock(lockId, blockId) {
+  const block = $(blockId);
+  if (!block.hidden) return;
+  $(lockId).hidden = true;
+  block.hidden = false;
+  block.classList.add('reveal');
+}
+function update(t) {
+  $('tNow').textContent = fmt(Math.min(t, CONFIG.DURATION));
+  $('bar').style.width = Math.min(100, t / CONFIG.DURATION * 100) + '%';
+  if (t > reached) { reached = t; store.set('lesson_reached', String(Math.floor(t))); }
+  if (reached >= CONFIG.STORIES_AT) openBlock('storiesLock', 'stories');
+  if (reached >= CONFIG.CTA_AT) {
+    if ($('cta').hidden) track('watched_to_cta');
+    openBlock('ctaLock', 'cta');
+  }
+}
+
+// Режим проверки: ссылка с #all открывает всё сразу
+function applyHash() {
+  if (location.hash === '#all') { $('previewBar').hidden = false; update(CONFIG.DURATION); }
+}
+$('resetBtn').addEventListener('click', () => {
+  store.del('lesson_reached'); reached = 0;
+  location.hash = ''; location.reload();
+});
+
+let timerStarted = false;
+function startTimer() {
+  if (timerStarted) return; timerStarted = true;
+  $('fallbackLink').hidden = false;
+  const t0 = Date.now() - reached * 1000;
+  const id = setInterval(() => {
+    const t = (Date.now() - t0) / 1000;
+    update(t);
+    if (t >= CONFIG.DURATION) clearInterval(id);
+  }, 1000);
+}
+
+$('poster').addEventListener('click', () => {
+  track('video_start');
+  const screen = $('screen');
+  if (CONFIG.VIDEO_MP4) {
+    const v = document.createElement('video');
+    v.src = CONFIG.VIDEO_MP4; v.controls = true; v.playsInline = true; v.preload = 'auto';
+    v.addEventListener('timeupdate', () => update(v.currentTime));
+    v.addEventListener('error', startTimer);
+    screen.replaceChildren(v);
+    v.play().catch(() => {});
+  } else if (CONFIG.VIDEO_EMBED) {
+    const f = document.createElement('iframe');
+    f.src = CONFIG.VIDEO_EMBED; f.allow = 'autoplay; fullscreen; picture-in-picture'; f.allowFullscreen = true;
+    f.title = 'Урок: технический специалист онлайн-школ';
+    screen.replaceChildren(f);
+    startTimer();
+  } else {
+    // Видео ещё не загружено: показываем заглушку и считаем время по таймеру
+    $('poster').querySelector('span').textContent = 'Здесь будет видео урока';
+    startTimer();
+  }
+});
+
+track('page_view');
+update(reached);
+applyHash();
+window.addEventListener('hashchange', applyHash);
+</script>
+</body>
+</html>
