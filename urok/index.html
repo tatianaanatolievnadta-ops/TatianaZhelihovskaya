@@ -257,7 +257,8 @@ const CONFIG = {
   KINESCOPE_URL: 'https://kinescope.io/iq46CKkqdZZq6oKV5g2oZJ',
   DURATION: 514,          // 8:34
   STORIES_AT: 0,          // истории учениц видны сразу
-  CTA_AT: 490,            // 8:10 — анкета и Telegram
+  CTA_AT: 490,            // 8:10 видео — анкета и Telegram (запасной способ)
+  CTA_AFTER_SEC: 180,     // анкета появляется через 3 минуты после открытия страницы
   FORM_URL: 'https://forms.gle/hMdY8fF6nCYJF6pC8',
   TG_URL: 'https://t.me/texspec_tandem',
   PRIVACY_URL: '',        // ссылка на политику конфиденциальности
@@ -311,7 +312,7 @@ function update(t) {
   if (reached >= CONFIG.STORIES_AT) openBlock('storiesLock', 'stories');
   if (reached >= CONFIG.CTA_AT) {
     if ($('cta').hidden) track('watched_to_cta');
-    openBlock('ctaLock', 'cta');
+    showCta();
   }
 }
 
@@ -402,6 +403,15 @@ $('poster').addEventListener('click', () => {
 
 track('page_view');
 update(reached);
+
+// Анкета через 3 минуты на странице; открытая анкета запоминается
+function showCta() {
+  if ($('cta').hidden) track('cta_shown');
+  store.set('lesson_cta', '1');
+  openBlock('ctaLock', 'cta');
+}
+if (store.get('lesson_cta')) showCta();
+else setTimeout(showCta, CONFIG.CTA_AFTER_SEC * 1000);
 applyHash();
 window.addEventListener('hashchange', applyHash);
 </script>
