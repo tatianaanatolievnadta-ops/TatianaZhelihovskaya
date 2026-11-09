@@ -1,300 +1,417 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Портфолио — Татьяна Желиховская</title>
-  <meta name="description" content="Портфолио: сайты, приложения, нейрофото, видео. Чудо-Отдых, Мобильный доктор, ТАНДЕМ, Сонное царство, Уборка." />
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="css/fonts.css" />
-  <link rel="stylesheet" href="css/styles.css?v=blackgold2" />
+  <title>Татьяна Желиховская — услуги и проекты</title>
+  <meta name="description" content="Татьяна Желиховская — технический специалист и инженер по нейросетям. Сайты, воронки, Taplink, чат-боты, ИИ-контент. Кабинет проектов клиентов." />
+  <meta name="author" content="Татьяна Желиховская" />
+  <link rel="canonical" href="https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/portfolio.html" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Татьяна Желиховская — услуги и проекты" />
+  <meta property="og:description" content="Сайты, воронки, нейросети под ключ. Кабинет проектов." />
+  <meta property="og:image" content="https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/assets/tatiana-photo.png" />
+  <meta property="og:url" content="https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/portfolio.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Татьяна Желиховская",
+    "jobTitle": ["Технический специалист", "Инженер по работе с нейросетями"],
+    "url": "https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/portfolio.html",
+    "image": "https://tatianaanatolievnadta-ops.github.io/TatianaZhelihovskaya/assets/tatiana-photo.png",
+    "telephone": "+79287600101",
+    "sameAs": [
+      "https://t.me/tatiana_tandem",
+      "https://max.ru/u/f9LHodD0cOKcxUZESHFMqYAGRyID1j3D9Oc6WNX46vZgk-hxdWvGf3RSqdw"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #050505;
+      --ink: #fff;
+      --muted: #b8b0a6;
+      --line: rgba(197, 160, 112, 0.28);
+      --gold: #c5a070;
+      --gold-bright: #e0c08a;
+      --gold-dim: #9a7a4f;
+      --card: rgba(14, 12, 10, 0.85);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .sans { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    .container { width: min(960px, calc(100% - 2rem)); margin: 0 auto; }
+
+    .site-topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 160, 112, 0.22);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.75rem 0; min-height: 4.5rem; flex-wrap: wrap;
+    }
+    .logo-link { display: inline-flex; align-items: center; gap: 0.65rem; }
+    .logo-img {
+      width: 56px; height: 56px; object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(197, 160, 112, 0.25));
+    }
+    .logo-word { display: flex; flex-direction: column; line-height: 1.15; }
+    .logo-word strong {
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright);
+    }
+    .logo-word span { font-size: 0.62rem; color: var(--muted); }
+    .nav-links {
+      display: flex; flex-wrap: wrap; gap: 0.35rem 1rem;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold-bright); }
+    .top-btn {
+      border-radius: 999px; padding: 0.45rem 0.95rem;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dim));
+      color: #111;
+    }
+
+    .hero {
+      padding: 2.2rem 0 2rem;
+      border-bottom: 1px solid rgba(197, 160, 112, 0.16);
+      background: linear-gradient(180deg, #0c0a08, #050505);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.6rem; align-items: center;
+    }
+    .eyebrow {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    h1 {
+      margin-top: 0.55rem;
+      font-size: clamp(1.7rem, 4vw, 2.45rem);
+      line-height: 1.12;
+    }
+    .sub { margin-top: 0.45rem; color: var(--gold-bright); font-size: 1.05rem; }
+    .lead { margin-top: 1rem; color: var(--muted); font-size: 1rem; }
+    .portrait {
+      border-radius: 22px; overflow: hidden;
+      border: 1px solid rgba(197, 160, 112, 0.35);
+      background: #0a0908; aspect-ratio: 4/5; max-height: 460px;
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.2rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 0; cursor: pointer; border-radius: 999px;
+      padding: 0.75rem 1.2rem; font-size: 0.76rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dim));
+      color: #111;
+    }
+    .btn-ghost {
+      border: 1px solid rgba(197, 160, 112, 0.4);
+      color: var(--gold-bright); background: transparent;
+    }
+
+    section { padding: 2rem 0; border-bottom: 1px solid rgba(197, 160, 112, 0.12); }
+    h2 { font-size: clamp(1.25rem, 3vw, 1.55rem); margin-bottom: 0.7rem; }
+    .text { color: var(--muted); }
+
+    .list { display: grid; gap: 0.55rem; margin-top: 1rem; }
+    .list li {
+      padding: 0.85rem 1rem; border-radius: 14px;
+      border: 1px solid rgba(197, 160, 112, 0.22);
+      background: var(--card); color: var(--muted);
+      display: grid; grid-template-columns: auto 1fr; gap: 0.7rem; align-items: start;
+    }
+    .list b {
+      color: var(--gold-bright); font-size: 0.72rem;
+      letter-spacing: 0.08em; text-transform: uppercase; padding-top: 0.15rem;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+    .card {
+      padding: 1.1rem; border-radius: 16px;
+      border: 1px solid rgba(197, 160, 112, 0.25);
+      background: linear-gradient(180deg, rgba(28, 24, 20, 0.45), rgba(10, 9, 8, 0.9));
+    }
+    .card strong { display: block; color: var(--gold-bright); margin-bottom: 0.35rem; }
+    .card p { color: var(--muted); font-size: 0.92rem; }
+
+    .masonry {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .work {
+      padding: 1.05rem; border-radius: 16px;
+      border: 1px solid rgba(197, 160, 112, 0.22);
+      background: var(--card);
+    }
+    .work .tag {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.45rem;
+    }
+    .work h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+    .work p { color: var(--muted); font-size: 0.88rem; }
+    .work a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
+
+    .contacts {
+      margin-top: 1rem; padding: 1.2rem; border-radius: 18px;
+      border: 1px solid rgba(197, 160, 112, 0.35);
+      background: rgba(197, 160, 112, 0.08);
+    }
+    .contacts a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
+    .contacts p { margin-top: 0.45rem; color: var(--muted); }
+    .note { margin-top: 1rem; font-size: 0.82rem; color: #8a8278; }
+
+    .site-footer { padding: 1.5rem 0 2rem; }
+    .footer-copy { color: #6f675f; font-size: 0.75rem; margin-top: 0.7rem; }
+
+    @media (max-width: 780px) {
+      .hero-grid, .grid-2 { grid-template-columns: 1fr; }
+      .portrait { max-height: 380px; aspect-ratio: 3/4; }
+      .logo-word, .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="site-nav" aria-label="Главная навигация">
-    <div class="wrap">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="ТЖ" width="44" height="44" />
-        <span>Татьяна Желиховская</span>
+  <div class="site-topbar">
+    <div class="container topbar-inner sans">
+      <a class="logo-link" href="portfolio.html" aria-label="Татьяна Желиховская">
+        <img class="logo-img" src="assets/logo.png" width="56" height="56" alt="Логотип Татьяны Желиховской" />
+        <span class="logo-word">
+          <strong>Татьяна Желиховская</strong>
+          <span>Нейроинженер · креатор</span>
+        </span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Меню" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="nav-links">
-        <a href="index.html">Главная</a>
+      <nav class="nav-links" aria-label="Меню">
+        <a href="#obo-mne">Обо мне</a>
+        <a href="#uslugi">Заказать</a>
+        <a href="#napravleniya">Направления</a>
         <a href="index.html#courses">Курсы</a>
-        <a href="portfolio.html" aria-current="page">Портфолио</a>
-        <a href="about.html">Обо мне</a>
-        <a href="multiki.html">Мультики</a>
-        <a class="btn btn-gold" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Написать</a>
+        <a href="works.html">Работы</a>
+      </nav>
+      <a class="top-btn" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Заказать</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow sans">Здравствуйте</p>
+        <h1 class="sans">Я Татьяна Желиховская</h1>
+        <p class="sub">нейроинженер · креатор · технический специалист</p>
+        <p class="lead">
+          Здесь можно заказать сайт, воронку, бота, визуал и ИИ-контент —
+          под ключ, без хаоса. Диплом инженера по искусственному интеллекту
+          («Синергия»), магистратура по ИИ (ЮФУ), 20+ лет практики в онлайне.
+        </p>
+        <div class="actions sans">
+          <a class="btn btn-gold" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Заказать в Telegram</a>
+          <a class="btn btn-ghost" href="#uslugi">Что можно заказать</a>
+          <a class="btn btn-ghost" href="tel:+79287600101">+7 928 760-01-01</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="assets/tatiana-photo.png" width="720" height="900" alt="Татьяна Желиховская" />
       </div>
     </div>
-  </nav>
-
-  <header class="page-hero wrap">
-    <p class="eyebrow">Работы</p>
-    <h1>Портфолио</h1>
-    <p>Сайты, веб-приложения, нейровизуал и Shorts. Клик по карточке открывает живой проект.</p>
   </header>
 
-  <section id="sites" style="padding-top:8px;border-top:none">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Сайты</p>
-        <h2>Клиентские и продуктовые сайты</h2>
-        <p>Tilda и кастомная вёрстка. Ссылки ведут на рабочие страницы.</p>
+  <main>
+    <section id="obo-mne">
+      <div class="container">
+        <h2 class="sans">Обо мне</h2>
+        <p class="text">
+          Я — нейроинженер и креатор: собираю технические системы для экспертов
+          и онлайн-школ и делаю живой контент нейросетями — песни, картинки,
+          мультики, аватары, видео. Говорю и с заказчиком, и с разработкой.
+          Бренд <b style="color:var(--gold-bright)">Нейромама</b> — учу женщин
+          работать с нейросетями без страха кода.
+        </p>
+        <div class="grid-2 sans" style="margin-top:1.2rem">
+          <div class="card">
+            <strong>Технический специалист</strong>
+            <p>Сайты, GetCourse, воронки, оплаты, боты, Taplink — чтобы школа продавала и выдавала доступы без хаоса.</p>
+          </div>
+          <div class="card">
+            <strong>Инженер по нейросетям</strong>
+            <p>Диплом инженера по ИИ. Внедряю нейросети в контент и процессы: от обложки до песни и короткого ролика.</p>
+          </div>
+          <div class="card">
+            <strong>Креатор</strong>
+            <p>Песни, нейрофото, мультики, аватары, карточки маркетплейсов — результат, который можно сразу показать или продать.</p>
+          </div>
+          <div class="card">
+            <strong>Преподаватель</strong>
+            <p>Мини-курсы и «Техспец»: короткие навыки с первыми деньгами, без длинной теории.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="folio-grid">
-        <a class="folio reveal" href="https://chudo-otdih.ru/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/chudo-otdih.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Сайт · туризм</p>
-            <h3>Чудо-Отдых</h3>
-            <p>Автобусные туры из Таганрога и Ростова. Каталог, бронирование, расписание.</p>
-            <span class="folio-link">chudo-otdih.ru →</span>
+    <section id="uslugi">
+      <div class="container">
+        <h2 class="sans">Что можно заказать у меня</h2>
+        <p class="text">Напишите в Telegram — разберём задачу и сроки:</p>
+        <ul class="list sans">
+          <li><b>01</b><span>Сделать сайт с нуля или собрать посадочную под продукт</span></li>
+          <li><b>02</b><span>Поправить / доработать уже готовый сайт</span></li>
+          <li><b>03</b><span>Оформить Taplink и страницы экспертов</span></li>
+          <li><b>04</b><span>Собрать воронку: прогрев → кодовое слово → оплата</span></li>
+          <li><b>05</b><span>Настроить оплату и доступы (GetCourse и смежное)</span></li>
+          <li><b>06</b><span>Чат-боты и автоответы в мессенджерах</span></li>
+          <li><b>07</b><span>Приложения и технические связки под задачу</span></li>
+          <li><b>08</b><span>Нейросети: песни, картинки, мультики, видео, тексты</span></li>
+          <li><b>09</b><span>Техподдержка онлайн-школы «под ключ»</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="napravleniya">
+      <div class="container">
+        <h2 class="sans">Все направления</h2>
+        <p class="text">После заказа и знакомства — курсы, работы и продукты:</p>
+        <div class="grid-2 sans" style="margin-top:1rem">
+          <div class="card">
+            <strong>Мини-курсы Нейромамы</strong>
+            <p>Песни, мультики, фото, рилс, сайты, боты — один навык за вечер.</p>
+            <p style="margin-top:.75rem"><a href="index.html#courses">Открыть курсы →</a></p>
           </div>
-        </a>
-
-        <a class="folio reveal" href="http://www.xn--90aglegdelfgbyy5jn.xn--p1ai/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/mobilnyy-doktor.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Сайт · услуги</p>
-            <h3>Мобильный доктор</h3>
-            <p>Перевозка лежачих больных в Таганроге. Услуги, тарифы, заказ.</p>
-            <span class="folio-link">мобильныйдоктор.рф →</span>
+          <div class="card">
+            <strong>Галерея работ</strong>
+            <p>Сайты, нейровизуал, аватары, мультики — живые примеры.</p>
+            <p style="margin-top:.75rem"><a href="works.html">Смотреть работы →</a></p>
           </div>
-        </a>
-
-        <a class="folio reveal" href="https://nevrolog-sheludchenko.tilda.ws" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/nevrolog.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Сайт · медицина</p>
-            <h3>Невролог Шелудченко</h3>
-            <p>Сайт для врача: инсульт, первая помощь, консультация. Пост во ВК neuromoms.</p>
-            <span class="folio-link">nevrolog-sheludchenko.tilda.ws →</span>
+          <div class="card">
+            <strong>Мультики</strong>
+            <p>Серии и Shorts с героями — можно смотреть на сайте.</p>
+            <p style="margin-top:.75rem"><a href="multiki.html">Раздел мультиков →</a></p>
           </div>
-        </a>
+          <div class="card">
+            <strong>Техспец</strong>
+            <p>Глубокая профессия техспециалиста онлайн-школ.</p>
+            <p style="margin-top:.75rem"><a href="https://tandemcorp.by/" target="_blank" rel="noopener">tandemcorp.by →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <a class="folio reveal" href="https://marinagerman.github.io/marinagerman/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/marina.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Витрина · курсы</p>
+    <section id="proekty">
+      <div class="container">
+        <h2 class="sans">Клиенты · красота и эксперты</h2>
+        <div class="masonry sans">
+          <article class="work">
+            <p class="tag">Клиент</p>
+            <h3>Мария Ермолаева</h3>
+            <p>Косметолог и массажист · «Красота по плану»</p>
+            <p style="margin-top:.75rem"><a href="https://tatianaanatolievnadta-ops.github.io/masha-ermolaeva/" target="_blank" rel="noopener">Открыть сайт →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Клиент</p>
+            <h3>Анна Шокотко</h3>
+            <p>Косметолог и перманент · Таганрог</p>
+            <p style="margin-top:.75rem"><a href="https://annashokotko.github.io/" target="_blank" rel="noopener">Открыть сайт →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Клиент</p>
             <h3>Марина Герман</h3>
-            <p>Витрина курсов и распродажи: оплата, доступы, 15 программ.</p>
-            <span class="folio-link">marinagerman.github.io →</span>
-          </div>
-        </a>
+            <p>Онлайн-школа, энергия, курсы</p>
+            <p style="margin-top:.75rem"><a href="https://marinagerman.github.io/marinagerman/" target="_blank" rel="noopener">Открыть сайт →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Клиент</p>
+            <h3>Women’s Circle</h3>
+            <p>Марина Герман · семинары и сессии</p>
+            <p style="margin-top:.75rem"><a href="https://tatianaanatolievnadta-ops.github.io/womenscircle/" target="_blank" rel="noopener">Открыть →</a></p>
+          </article>
+        </div>
 
-        <a class="folio reveal" href="https://tatianaanatolievnadta-ops.github.io/getstaff2/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/getstaff.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Магазин · крепёж</p>
+        <h2 class="sans" style="margin-top:2.2rem">Свои продукты и витрины</h2>
+        <div class="masonry sans">
+          <article class="work">
+            <p class="tag">Своё</p>
+            <h3>Камыш</h3>
+            <p>Сухоцвет для интерьера</p>
+            <p style="margin-top:.75rem"><a href="https://tatianaanatolievnadta-ops.github.io/kamysh/" target="_blank" rel="noopener">Открыть →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Своё</p>
             <h3>GETSTUFF</h3>
-            <p>Каталог саморезов и гвоздей, опт, доставка, связка с WB.</p>
-            <span class="folio-link">getstaff2 →</span>
-          </div>
-        </a>
-
-        <a class="folio reveal" href="https://tandemcorp.by/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/sites/techspec.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Лендинг · EdTech</p>
-            <h3>Техспец на Чиле</h3>
-            <p>Курс техспециалиста онлайн-школ. Тарифы, bePaid.</p>
-            <span class="folio-link">tandemcorp.by →</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="apps">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Приложения</p>
-        <h2>Веб-приложения на GitHub Pages</h2>
-        <p>Можно сразу покликать — это рабочие демо.</p>
-      </div>
-
-      <div class="folio-grid">
-        <a class="folio reveal" href="https://tatianaanatolievnadta-ops.github.io/sonnoecarstvonaponyatnom/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/apps/sonnoe.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Приложение</p>
+            <p>Крепёж, каталог, 1С</p>
+            <p style="margin-top:.75rem"><a href="https://github.com/tatianaanatolievnadta-ops/getstuff" target="_blank" rel="noopener">Репозиторий →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Своё</p>
             <h3>Сонное царство</h3>
-            <p>Толкование снов: текст или голос, луна, тесты, аудио и статьи. Без вариантов «а/б/в».</p>
-            <span class="folio-link">Открыть демо →</span>
-          </div>
-        </a>
-
-        <a class="folio reveal" href="https://tatianaanatolievnadta-ops.github.io/uborka/" target="_blank" rel="noopener">
-          <div class="folio-shot" style="background-image:url('assets/portfolio/apps/uborka.jpg')"></div>
-          <div class="folio-body">
-            <p class="tag">Приложение</p>
-            <h3>Домашний план — уборка</h3>
-            <p>Планировщик уборки по домам. Вход через email, Google, VK или Telegram.</p>
-            <span class="folio-link">Открыть демо →</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section id="photos">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Фото</p>
-        <h2>С сайта и живые кадры</h2>
-        <p>Из папки neuromoms/foto и живые снимки с Диска.</p>
-      </div>
-      <div class="masonry gallery-masonry">
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-hero-glasses.jpg')"><p class="tag">Бренд</p><h3>Hero</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-profile.jpg')"><p class="tag">Бренд</p><h3>Профиль</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-laugh.jpg')"><p class="tag">Бренд</p><h3>Улыбка</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-walk.jpg')"><p class="tag">Бренд</p><h3>Прогулка</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-sofa.jpg')"><p class="tag">Бренд</p><h3>Диван</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-stairs.jpg')"><p class="tag">Бренд</p><h3>Лестница</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-balcony.jpg')"><p class="tag">Бренд</p><h3>Балкон</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/nm-car.jpg')"><p class="tag">Бренд</p><h3>Авто</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/sea-portrait-1.jpg')"><p class="tag">Портрет</p><h3>Море</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/site-hero-luxury.jpg')"><p class="tag">Сайт</p><h3>Luxury hero</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/oldmoney-coat.jpg')"><p class="tag">Стиль</p><h3>Old money</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/brand/gallery-sofa.jpg')"><p class="tag">Сайт</p><h3>Галерея</h3></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="live">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Живое</p>
-        <h2>С улицы · без нейросети</h2>
-        <p>Кадры из foto-refs — белая майка, джинсы, естественный свет.</p>
-      </div>
-      <div class="masonry gallery-masonry">
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-01.jpg')"><p class="tag">Живое</p><h3>01</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-02.jpg')"><p class="tag">Живое</p><h3>02</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-03.jpg')"><p class="tag">Живое</p><h3>03</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-04.jpg')"><p class="tag">Живое</p><h3>04</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-05.jpg')"><p class="tag">Живое</p><h3>05</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/live/live-06.jpg')"><p class="tag">Живое</p><h3>06</h3></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="ai">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Нейровизуал</p>
-        <h2>Нейрофото · аватары · карточки</h2>
-        <p>Фото и ИИ-модели. Ниже — видео: аватаров можно оживить.</p>
-      </div>
-      <div class="masonry gallery-masonry">
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-01.jpg')"><p class="tag">Нейрофото</p><h3>01</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-02.jpg')"><p class="tag">Нейрофото</p><h3>02</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-03.jpg')"><p class="tag">Нейрофото</p><h3>03</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-07.jpg')"><p class="tag">Нейрофото</p><h3>04</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-08.jpg')"><p class="tag">Нейрофото</p><h3>05</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/neurofoto/foto-09.jpg')"><p class="tag">Нейрофото</p><h3>06</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/avatars/avatar-tata-01.jpg')"><p class="tag">ИИ-модель</p><h3>Тата</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/avatars/mila-01.jpg')"><p class="tag">ИИ-модель</p><h3>Мила</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-01.jpg')"><p class="tag">Карточка</p><h3>WB / Ozon</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-02.jpg')"><p class="tag">Карточка</p><h3>Товар</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-03.jpg')"><p class="tag">Карточка</p><h3>Серия</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/avatars/avatar-tata-03.jpg')"><p class="tag">Аватар</p><h3>Портрет</h3></article>
-      </div>
-
-      <div class="section-head" style="margin-top:48px">
-        <p class="eyebrow">Оживление</p>
-        <h2>Нейроаватары в движении</h2>
-        <p>Кликни по карточке — ролик запускается. Фото можно превратить в живое видео.</p>
-      </div>
-      <div class="media-rail" id="avatar-rail">
-        <article class="media-card media-card-still">
-          <img src="assets/portfolio/brand/nm-hero-glasses.jpg" alt="Татьяна — стильный портрет" width="400" height="640" loading="lazy" />
-          <div class="media-meta"><p class="tag">Стиль</p><h3>Живое · портрет</h3></div>
-        </article>
-        <article class="media-card">
-          <video class="media-video" poster="assets/portfolio/videos/avatar-tata-1.jpg" preload="metadata" playsinline muted loop controls>
-            <source src="assets/portfolio/videos/avatar-tata-1.mp4" type="video/mp4" />
-          </video>
-          <div class="media-meta"><p class="tag">Тата</p><h3>Аватар · оживление 1</h3></div>
-        </article>
-        <article class="media-card">
-          <video class="media-video" poster="assets/portfolio/videos/avatar-tata-2.jpg" preload="metadata" playsinline muted loop controls>
-            <source src="assets/portfolio/videos/avatar-tata-2.mp4" type="video/mp4" />
-          </video>
-          <div class="media-meta"><p class="tag">Тата</p><h3>Аватар · оживление 2</h3></div>
-        </article>
-        <article class="media-card">
-          <video class="media-video" poster="assets/portfolio/videos/avatar-mila-1.jpg" preload="metadata" playsinline muted loop controls>
-            <source src="assets/portfolio/videos/avatar-mila-1.mp4" type="video/mp4" />
-          </video>
-          <div class="media-meta"><p class="tag">Мила</p><h3>Модель для клиента</h3></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="design">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Дизайн · карточки</p>
-        <h2>Инфографика и товарные коллажи</h2>
-        <p>Карточки маркетплейса, планировки, интерьеры — визуал под заказ.</p>
-      </div>
-      <div class="masonry gallery-masonry">
-        <article class="work work-img" style="background-image:url('assets/portfolio/design/rayban-collage.jpg')"><p class="tag">Карточка</p><h3>Ray-Ban · коллаж</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/design/plot-plan.jpg')"><p class="tag">Планировка</p><h3>Участок 20×30</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/design/apt-33.jpg')"><p class="tag">Интерьер</p><h3>Квартира 33 м²</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-01.jpg')"><p class="tag">Карточка</p><h3>WB / Ozon</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-02.jpg')"><p class="tag">Карточка</p><h3>Товар</h3></article>
-        <article class="work work-img" style="background-image:url('assets/portfolio/cards/card-03.jpg')"><p class="tag">Карточка</p><h3>Серия</h3></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="video">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Мультики</p>
-        <h2>YouTube + серии с просмотром</h2>
-        <p>Герои видны, ролики листаются на отдельной странице.</p>
-      </div>
-      <a class="folio folio-wide reveal" href="multiki.html">
-        <div class="folio-shot" style="background-image:url('assets/portfolio/multiki/hero-lj-1.jpg')"></div>
-        <div class="folio-body" style="padding:32px">
-          <p class="tag">Смотреть</p>
-          <h3>Открыть раздел мультиков</h3>
-          <p>Серия «Про ЛЖ», пиксарт, Shorts — с проигрывателем и превью героев.</p>
-          <span class="folio-link">multiki.html →</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <h2>Нужен сайт, приложение или визуал?</h2>
-        <p>Напишите — покажу релевантные кейсы и сроки.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="tel:+79287600101">Позвонить</a>
-          <a class="btn btn-ghost" href="cases.html">Кейсы с цифрами</a>
+            <p>Расшифровка снов</p>
+            <p style="margin-top:.75rem"><a href="https://tatianaanatolievnadta-ops.github.io/sonnoecarstvonaponyatnom/" target="_blank" rel="noopener">Открыть →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Своё</p>
+            <h3>Уборка / Clean Plan</h3>
+            <p>Планировщик домашней уборки</p>
+            <p style="margin-top:.75rem"><a href="https://tatianaanatolievnadta-ops.github.io/uborka/" target="_blank" rel="noopener">Открыть →</a></p>
+          </article>
+          <article class="work">
+            <p class="tag">Своё</p>
+            <h3>GetStaff</h3>
+            <p>Проект getstaff2</p>
+            <p style="margin-top:.75rem"><a href="https://github.com/tatianaanatolievnadta-ops/getstaff2" target="_blank" rel="noopener">Репозиторий →</a></p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="wrap">
-      <p>© <span id="y"></span> Татьяна Желиховская</p>
-      <p><a href="about.html">Обо мне</a> · <a href="cases.html">Кейсы</a> · <a href="courses.html">Курсы</a></p>
-      <p><a href="oferta.html">Оферта</a> · <a href="privacy.html">Политика обработки персональных данных</a> · <a href="soglasie.html">Согласие на обработку данных</a> · <a href="cookies.html">Политика cookie</a> · <a href="dokumenty.html">Все документы</a> · <a href="#" data-cookie-settings>Настройки cookie</a></p>
+    <section id="kontakt">
+      <div class="container">
+        <h2 class="sans">Связаться</h2>
+        <div class="contacts sans">
+          <p><strong style="color:var(--gold-bright)">Телефон:</strong> <a href="tel:+79287600101">+7 928 760-01-01</a></p>
+          <p><strong style="color:var(--gold-bright)">Telegram:</strong> <a href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">@tatiana_tandem</a></p>
+          <p><strong style="color:var(--gold-bright)">MAX:</strong> <a href="https://max.ru/u/f9LHodD0cOKcxUZESHFMqYAGRyID1j3D9Oc6WNX46vZgk-hxdWvGf3RSqdw" target="_blank" rel="noopener">открыть чат в MAX</a></p>
+        </div>
+        <div class="actions sans">
+          <a class="btn btn-gold" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Заказать в Telegram</a>
+          <a class="btn btn-ghost" href="index.html#courses">К курсам</a>
+          <a class="btn btn-ghost" href="works.html">К работам</a>
+        </div>
+        <p class="note">Эта страница — постоянный адрес для QR с открытки и визитки. Здесь обо мне и заказ услуг.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer sans">
+    <div class="container">
+      <p class="footer-copy">© 2026 Татьяна Желиховская · технический специалист · инженер по нейросетям</p>
+      <p class="footer-copy" style="margin-top:.55rem">
+        <a href="oferta.html">Оферта</a> ·
+        <a href="privacy.html">Политика обработки персональных данных</a> ·
+        <a href="soglasie.html">Согласие на обработку данных</a> ·
+        <a href="cookies.html">Политика cookie</a> ·
+        <a href="dokumenty.html">Все документы</a> ·
+        <a href="#" data-cookie-settings>Настройки cookie</a>
+      </p>
     </div>
   </footer>
-  <script src="js/main.js"></script>
   <script src="js/consent.js" defer></script>
-
 </body>
 </html>
