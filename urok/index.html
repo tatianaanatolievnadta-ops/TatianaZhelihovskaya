@@ -74,8 +74,9 @@ a { color: inherit; }
 .track { height: 6px; background: var(--line); border-radius: 6px; margin-top: 12px; overflow: hidden; }
 .track i { display: block; height: 100%; width: 0; background: var(--wine); transition: width .4s linear; }
 .track-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
-.fallback-link { margin-top: 10px; font-size: 15px; }
-.fallback-link a { color: var(--wine); font-weight: 700; }
+.mini-cta { margin-top: 14px; display: flex; justify-content: center; }
+.btn-mini { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 18px; border-radius: 999px; font-size: 15px; font-weight: 600; color: var(--wine); text-decoration: none; box-shadow: inset 0 0 0 1.5px var(--gold); background: transparent; transition: background .2s ease; }
+.btn-mini:hover { background: var(--surface); }
 
 /* Что внутри: настоящий список из шести тем урока */
 .learn { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 18px; border-top: 1px solid var(--line); }
@@ -167,7 +168,7 @@ footer a { color: var(--wine); }
       </div>
       <div class="track" aria-hidden="true"><i id="bar"></i></div>
       <div class="track-meta"><span id="tNow">0:00</span><span>8:34</span></div>
-      <p class="fallback-link" id="fallbackLink" hidden>Если кнопка под уроком не появилась, <a id="fallbackHref" href="#" target="_blank" rel="noopener">откройте анкету по этой ссылке</a>.</p>
+      <p class="mini-cta"><a class="btn-mini" id="formMini" href="https://forms.gle/hMdY8fF6nCYJF6pC8" target="_blank" rel="noopener">Заполнить анкету предзаписи <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -290,10 +291,10 @@ function formUrl() {
 
 const $ = id => document.getElementById(id);
 $('formBtn').href = formUrl();
-$('fallbackHref').href = formUrl();
+$('formMini').href = formUrl();
 $('tgBtn').href = CONFIG.TG_URL;
 $('formBtn').addEventListener('click', () => track('form_click'));
-$('fallbackHref').addEventListener('click', () => track('form_click'));
+$('formMini').addEventListener('click', () => track('form_click'));
 
 const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 let reached = Number(store.get('lesson_reached') || 0);
@@ -328,7 +329,6 @@ $('resetBtn').addEventListener('click', () => {
 let timerStarted = false;
 function startTimer() {
   if (timerStarted) return; timerStarted = true;
-  $('fallbackLink').hidden = false;
   const t0 = Date.now() - reached * 1000;
   const id = setInterval(() => {
     const t = (Date.now() - t0) / 1000;
