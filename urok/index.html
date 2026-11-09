@@ -253,6 +253,8 @@ const CONFIG = {
   VIDEO_MP4: '',
   // Или ссылка на встраиваемый плеер (Kinescope, VK Видео, Rutube): тогда блоки открываются по таймеру от нажатия.
   VIDEO_EMBED: '',
+  // Видео в Kinescope: блоки открываются по времени в самом видео
+  KINESCOPE_URL: 'https://kinescope.io/iq46CKkqdZZq6oKV5g2oZJ',
   DURATION: 514,          // 8:34
   STORIES_AT: 0,          // истории учениц видны сразу
   CTA_AT: 490,            // 8:10 — анкета и Telegram
@@ -334,10 +336,51 @@ function startTimer() {
   }, 1000);
 }
 
+// Плеер Kinescope с передачей времени просмотра. Если API не ответит — обычный плеер и таймер.
+function playKinescope(screen) {
+  const holder = document.createElement('div');
+  holder.id = 'kinescopePlayer';
+  holder.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
+  screen.replaceChildren(holder);
+  let ok = false;
+  const fallback = () => {
+    if (ok) return;
+    const id = CONFIG.KINESCOPE_URL.split('/').pop();
+    const f = document.createElement('iframe');
+    f.src = 'https://kinescope.io/embed/' + id + '?autoplay=1';
+    f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write';
+    f.allowFullscreen = true;
+    f.title = 'Урок: технический специалист онлайн-школ';
+    screen.replaceChildren(f);
+    startTimer();
+  };
+  const timer = setTimeout(fallback, 8000);
+  window.onKinescopeIframeAPIReady = function (factory) {
+    factory.create('kinescopePlayer', {
+      url: CONFIG.KINESCOPE_URL,
+      size: { width: '100%', height: '100%' },
+      behavior: { autoPlay: true, playsInline: true },
+    }).then(function (player) {
+      ok = true; clearTimeout(timer);
+      player.on(player.Events.TimeUpdate, function (ev) {
+        const t = ev && ev.data && ev.data.currentTime;
+        if (typeof t === 'number') update(t);
+      });
+    }).catch(function () { clearTimeout(timer); fallback(); });
+  };
+  const sc = document.createElement('script');
+  sc.src = 'https://player.kinescope.io/latest/iframe.player.js';
+  sc.async = true;
+  sc.onerror = function () { clearTimeout(timer); fallback(); };
+  document.head.appendChild(sc);
+}
+
 $('poster').addEventListener('click', () => {
   track('video_start');
   const screen = $('screen');
-  if (CONFIG.VIDEO_MP4) {
+  if (CONFIG.KINESCOPE_URL) {
+    playKinescope(screen);
+  } else if (CONFIG.VIDEO_MP4) {
     const v = document.createElement('video');
     v.src = CONFIG.VIDEO_MP4; v.controls = true; v.playsInline = true; v.preload = 'auto';
     v.addEventListener('timeupdate', () => update(v.currentTime));
