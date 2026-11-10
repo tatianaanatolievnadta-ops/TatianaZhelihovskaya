@@ -281,16 +281,65 @@
     }
     .tech-note a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
 
+    .print3d-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+      margin-top: 1.15rem;
+      align-items: stretch;
+    }
+    .print3d-shot {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 160, 112, 0.28);
+      background: #0a0908;
+      min-height: 320px;
+    }
+    .print3d-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .print3d-thumbs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+    .print3d-thumbs a,
+    .print3d-thumbs figure {
+      margin: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 160, 112, 0.22);
+      background: #0a0908;
+      aspect-ratio: 4/3;
+    }
+    .print3d-thumbs img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s ease;
+    }
+    .print3d-thumbs a:hover img { transform: scale(1.04); }
+    .print3d-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
     @media (max-width: 900px) {
       .tech-mods { grid-template-columns: 1fr 1fr; }
       .tech-who { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 780px) {
-      .hero-grid, .grid-2, .tech-hero { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .tech-hero, .print3d-grid, .print3d-points { grid-template-columns: 1fr; }
       .portrait { max-height: 380px; aspect-ratio: 3/4; }
       .logo-word, .nav-links { display: none; }
       .tech-mods, .tech-who { grid-template-columns: 1fr; }
       .tech-cover { min-height: 200px; }
+      .print3d-shot { min-height: 240px; }
     }
   </style>
 </head>
@@ -308,6 +357,7 @@
         <a href="#obo-mne">Обо мне</a>
         <a href="#uslugi">Заказать</a>
         <a href="#tehspec">Техспец</a>
+        <a href="#pechat3d">3D-печать</a>
         <a href="#napravleniya">Направления</a>
         <a href="index.html#courses">Курсы</a>
         <a href="works.html">Работы</a>
@@ -384,8 +434,67 @@
           <li><b>06</b><span>Чат-боты и автоответы в мессенджерах</span></li>
           <li><b>07</b><span>Приложения и технические связки под задачу</span></li>
           <li><b>08</b><span>Нейросети: песни, картинки, мультики, видео, тексты</span></li>
-          <li><b>09</b><span>Техподдержка онлайн-школы «под ключ»</span></li>
+          <li><b>09</b><span>Модели и картинки под 3D-печать: STL, разбор по цветам, лист сборки</span></li>
+          <li><b>10</b><span>Техподдержка онлайн-школы «под ключ»</span></li>
         </ul>
+      </div>
+    </section>
+
+    <section id="pechat3d">
+      <div class="container">
+        <p class="eyebrow sans">Услуга</p>
+        <h2 class="sans">Подготовка к 3D-печати</h2>
+        <p class="text">
+          Делаю программу на печать и картинки к ней: от фото/идеи —
+          до разборной модели под принтер. STL по цветам, без AMS,
+          соединения без клея, техлист для сборки.
+        </p>
+
+        <div class="print3d-grid sans">
+          <div class="print3d-shot">
+            <img src="assets/portfolio/3d/puppy-assembly.jpg" width="900" height="700" alt="Разборная 3D-модель собачки в ванночке — взрыв-схема и сборка" />
+          </div>
+          <div>
+            <div class="card" style="height:100%;display:flex;flex-direction:column;justify-content:center">
+              <strong>Кейс · собачка в ванночке</strong>
+              <p>
+                Концепт → 4 проекции скульпта → разделение по цветам →
+                пластины для Bambu Lab → лист сборки со штифтами и «ласточкиным хвостом».
+                Фигурка ~70 мм, удобно в одну руку.
+              </p>
+              <div class="print3d-points">
+                <div class="card" style="padding:.85rem">
+                  <strong style="font-size:.85rem">Что отдаю</strong>
+                  <p>STL по цветам, картинки презентации, лист сборки</p>
+                </div>
+                <div class="card" style="padding:.85rem">
+                  <strong style="font-size:.85rem">Для кого</strong>
+                  <p>Владельцы 3D-принтеров, сувениры, подарки, мерч</p>
+                </div>
+              </div>
+              <div class="actions" style="margin-top:1.1rem">
+                <a class="btn btn-gold" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Заказать модель</a>
+                <a class="btn btn-ghost" href="works.html#pechat3d">Все кадры кейса</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="print3d-thumbs sans" style="margin-top:1rem">
+          <a href="assets/portfolio/3d/puppy-cutout.jpg" target="_blank" rel="noopener">
+            <img src="assets/portfolio/3d/puppy-cutout.jpg" alt="Концепт: собачка в синей ванночке" loading="lazy" />
+          </a>
+          <a href="assets/portfolio/3d/puppy-sculpt-4views.jpg" target="_blank" rel="noopener">
+            <img src="assets/portfolio/3d/puppy-sculpt-4views.jpg" alt="Скульпт в 4 проекциях" loading="lazy" />
+          </a>
+          <a href="assets/portfolio/3d/puppy-parts-sheet.jpg" target="_blank" rel="noopener">
+            <img src="assets/portfolio/3d/puppy-parts-sheet.jpg" alt="Лист деталей по цветам для STL" loading="lazy" />
+          </a>
+          <a href="assets/portfolio/3d/puppy-bambu-plates.jpg" target="_blank" rel="noopener">
+            <img src="assets/portfolio/3d/puppy-bambu-plates.jpg" alt="Печатные пластины Bambu Lab по цветам" loading="lazy" />
+          </a>
+        </div>
+        <p class="note">Нужна своя фигурка с фото питомца или персонажа — пришлите референс в Telegram, сделаю комплект под печать.</p>
       </div>
     </section>
 
@@ -491,6 +600,11 @@
             <strong>Галерея работ</strong>
             <p>Сайты, нейровизуал, аватары, мультики — живые примеры.</p>
             <p style="margin-top:.75rem"><a href="works.html">Смотреть работы →</a></p>
+          </div>
+          <div class="card">
+            <strong>3D-печать</strong>
+            <p>Модель + картинки + STL под принтер. Без AMS, сборка без клея.</p>
+            <p style="margin-top:.75rem"><a href="#pechat3d">Смотреть кейс →</a></p>
           </div>
           <div class="card">
             <strong>Мультики</strong>
