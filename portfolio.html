@@ -185,10 +185,112 @@
     .site-footer { padding: 1.5rem 0 2rem; }
     .footer-copy { color: #6f675f; font-size: 0.75rem; margin-top: 0.7rem; }
 
+    .tech-panel {
+      margin-top: 1.2rem;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 160, 112, 0.32);
+      background:
+        radial-gradient(ellipse at 12% 0%, rgba(197, 160, 112, 0.16), transparent 48%),
+        linear-gradient(165deg, #14110e 0%, #080706 55%, #050505 100%);
+    }
+    .tech-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 0;
+      min-height: 280px;
+    }
+    .tech-copy { padding: 1.5rem 1.4rem 1.35rem; }
+    .tech-copy .lead { margin-top: 0.7rem; }
+    .tech-cover {
+      position: relative;
+      min-height: 240px;
+      background:
+        linear-gradient(120deg, rgba(5,5,5,.55), rgba(5,5,5,.15)),
+        url("assets/portfolio/sites/techspec.jpg") center / cover no-repeat;
+    }
+    .tech-cover-badge {
+      position: absolute; left: 1rem; bottom: 1rem;
+      padding: 0.55rem 0.85rem; border-radius: 999px;
+      background: rgba(5, 5, 5, 0.78);
+      border: 1px solid rgba(197, 160, 112, 0.4);
+      color: var(--gold-bright);
+      font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .tech-meta {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+      margin-top: 1rem;
+    }
+    .tech-meta span {
+      padding: 0.4rem 0.7rem; border-radius: 999px;
+      border: 1px solid rgba(197, 160, 112, 0.28);
+      background: rgba(197, 160, 112, 0.08);
+      color: var(--gold-bright);
+      font-size: 0.7rem; letter-spacing: 0.04em;
+    }
+    .tech-body { padding: 0 1.4rem 1.5rem; }
+    .tech-mods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+    .tech-mod {
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(197, 160, 112, 0.22);
+      background: rgba(10, 9, 8, 0.72);
+    }
+    .tech-mod b {
+      display: block;
+      color: var(--gold-bright);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .tech-mod p { color: var(--muted); font-size: 0.88rem; line-height: 1.4; }
+    .tech-who {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .tech-who li {
+      padding: 0.85rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(197, 160, 112, 0.2);
+      background: rgba(197, 160, 112, 0.06);
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    .tech-who strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+      font-size: 0.92rem;
+    }
+    .tech-note {
+      margin-top: 1.1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(197, 160, 112, 0.28);
+      background: rgba(197, 160, 112, 0.07);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .tech-note a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 2px; }
+
+    @media (max-width: 900px) {
+      .tech-mods { grid-template-columns: 1fr 1fr; }
+      .tech-who { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 780px) {
-      .hero-grid, .grid-2 { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .tech-hero { grid-template-columns: 1fr; }
       .portrait { max-height: 380px; aspect-ratio: 3/4; }
       .logo-word, .nav-links { display: none; }
+      .tech-mods, .tech-who { grid-template-columns: 1fr; }
+      .tech-cover { min-height: 200px; }
     }
   </style>
 </head>
@@ -205,6 +307,7 @@
       <nav class="nav-links" aria-label="Меню">
         <a href="#obo-mne">Обо мне</a>
         <a href="#uslugi">Заказать</a>
+        <a href="#tehspec">Техспец</a>
         <a href="#napravleniya">Направления</a>
         <a href="index.html#courses">Курсы</a>
         <a href="works.html">Работы</a>
@@ -286,6 +389,94 @@
       </div>
     </section>
 
+    <section id="tehspec">
+      <div class="container">
+        <p class="eyebrow sans">Профессия</p>
+        <h2 class="sans">Технический специалист онлайн-школ</h2>
+        <p class="text">
+          Я собираю и веду технику запусков: сайты, оплаты, доступы, боты, вебинары.
+          Вместе с Алиной Кудряшовой ведём курс «Техспец на Чиле» —
+          профессия для тех, кто хочет зарабатывать на настройках онлайн-школ.
+        </p>
+
+        <div class="tech-panel sans">
+          <div class="tech-hero">
+            <div class="tech-copy">
+              <p class="eyebrow">Курс · Академия ТАНДЕМ</p>
+              <h2 style="margin-top:.45rem">Техспец на Чиле</h2>
+              <p class="lead">
+                8 недель практики без кода: от первого сайта на Tilda
+                до воронки, бота и GetCourse. Цель навыка —
+                стабильные заказы на настройках онлайн-курсов.
+              </p>
+              <div class="tech-meta">
+                <span>8 недель</span>
+                <span>уроки 10–30 мин</span>
+                <span>кейсы для клиентов</span>
+                <span>Tilda · Bizon · GetCourse · боты</span>
+              </div>
+              <div class="actions" style="margin-top:1.15rem">
+                <a class="btn btn-gold" href="https://tandemcorp.by/" target="_blank" rel="noopener">Сайт курса</a>
+                <a class="btn btn-ghost" href="urok/">Бесплатный урок</a>
+                <a class="btn btn-ghost" href="https://t.me/tatiana_tandem" target="_blank" rel="noopener">Спросить меня</a>
+              </div>
+            </div>
+            <div class="tech-cover" role="img" aria-label="Обложка курса Техспец на Чиле">
+              <span class="tech-cover-badge">tandemcorp.by</span>
+            </div>
+          </div>
+
+          <div class="tech-body">
+            <h3 style="font-size:1.05rem;margin-bottom:.2rem">Чему учим на курсе</h3>
+            <p class="text" style="font-size:.92rem">Короткие видео, повторяете шаг за шагом — и собираете портфолио по ходу обучения.</p>
+            <div class="tech-mods">
+              <article class="tech-mod">
+                <b>01 · База запуска</b>
+                <p>Как устроена онлайн-школа: сайты, вебинары, воронки, что брать в работу.</p>
+              </article>
+              <article class="tech-mod">
+                <b>02 · Сайты на Tilda</b>
+                <p>Первый сайт без кода, оплаты, уведомления и связки с сервисами.</p>
+              </article>
+              <article class="tech-mod">
+                <b>03 · Вебинары</b>
+                <p>Bizon365 и площадки: подготовка, модерация, отчёты, если эфир «упал».</p>
+              </article>
+              <article class="tech-mod">
+                <b>04 · Чат-боты</b>
+                <p>Telegram и VK: автоворонка, SMS и автозвонки, упаковка услуги под заказчика.</p>
+              </article>
+              <article class="tech-mod">
+                <b>05 · GetCourse</b>
+                <p>Платформа школы: доступы, живые и автовебинары, рабочий контур продукта.</p>
+              </article>
+              <article class="tech-mod">
+                <b>06 · Поиск заказчика</b>
+                <p>Резюме, сопроводительное, портфолио и где брать первые проекты.</p>
+              </article>
+            </div>
+
+            <h3 style="font-size:1.05rem;margin:1.35rem 0 .35rem">Кому подходит</h3>
+            <ul class="tech-who">
+              <li><strong>Фрилансеру</strong>хочется стабильных заказов вместо разовых «пожаров»</li>
+              <li><strong>Офисному</strong>перейти в удалёнку с понятным чеком за настройки</li>
+              <li><strong>Маме в декрете</strong>освоить профессию дома, без программирования</li>
+              <li><strong>Студенту</strong>войти в онлайн с нуля и собрать первые кейсы</li>
+            </ul>
+
+            <div class="tech-note">
+              Спикеры курса — <strong style="color:var(--gold-bright)">Татьяна Желиховская</strong>
+              и <strong style="color:var(--gold-bright)">Алина Кудряшова</strong>:
+              два технических ума, которые собирают системы для онлайн-школ и учат этому других.
+              Тарифы, рассрочка и оплата bePaid — на сайте
+              <a href="https://tandemcorp.by/" target="_blank" rel="noopener">tandemcorp.by</a>.
+              Нужна техподдержка школы под ключ — напишите мне напрямую в Telegram.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="napravleniya">
       <div class="container">
         <h2 class="sans">Все направления</h2>
@@ -307,9 +498,9 @@
             <p style="margin-top:.75rem"><a href="multiki.html">Раздел мультиков →</a></p>
           </div>
           <div class="card">
-            <strong>Техспец</strong>
-            <p>Глубокая профессия техспециалиста онлайн-школ.</p>
-            <p style="margin-top:.75rem"><a href="https://tandemcorp.by/" target="_blank" rel="noopener">tandemcorp.by →</a></p>
+            <strong>Техспец на Чиле</strong>
+            <p>Профессия техспециалиста онлайн-школ — программа и тарифы.</p>
+            <p style="margin-top:.75rem"><a href="#tehspec">Смотреть раздел →</a></p>
           </div>
         </div>
       </div>
