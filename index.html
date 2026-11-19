@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Татьяна Желиховская — обучение нейросетям</title>
+<meta name="description" content="Курс по нейросетям от Татьяны Желиховской: нейрофотосессии, видео, мультфильмы, песни и сайты с анимацией — с нуля, с телефона.">
+<meta property="og:title" content="Татьяна Желиховская — обучение нейросетям">
+<meta property="og:image" content="img/red-suit.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0C0B; --ink2:#171412; --ink3:#221d19;
+  --gold:#C9A45C; --gold2:#E3C886; --gold3:#8E6E32;
+  --red:#7A1420; --red2:#A3202E;
+  --cream:#F4EEE4; --white:#FBF8F3; --mute:#A79F93;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--red);color:var(--white)}
+.wrap{width:min(1240px,92vw);margin:0 auto}
+.eyebrow{font:600 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";display:inline-block;width:34px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(40px,6vw,84px)}
+h2 em,h1 em{font-style:italic;color:var(--gold2)}
+.gold-text{background:linear-gradient(100deg,#9c7838 0%,#E9D29A 22%,#C9A45C 40%,#fff3cf 50%,#C9A45C 60%,#8E6E32 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:19px 34px;border-radius:2px;font:600 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;overflow:hidden;transition:color .4s,transform .3s;border:0}
+.btn-gold{background:linear-gradient(135deg,#E9D29A,#C9A45C 45%,#9c7838);color:#140f0a}
+.btn-gold::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);animation:sweep 3.6s ease-in-out infinite}
+@keyframes sweep{0%,60%{left:-60%}100%{left:130%}}
+.btn-line{border:1px solid rgba(201,164,92,.6);color:var(--gold2)}
+.btn-line:hover{background:var(--red);border-color:var(--red);color:var(--white)}
+.btn .arr{transition:transform .3s}.btn:hover .arr{transform:translateX(6px)}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:10000;background:var(--ink);display:grid;place-items:center;transition:opacity .9s ease .2s,visibility .9s .2s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .mono{font:italic 400 88px/1 var(--serif);color:transparent;-webkit-text-stroke:1px var(--gold);position:relative}
+#pre .mono span{position:absolute;inset:0;color:var(--gold);-webkit-text-stroke:0;clip-path:inset(100% 0 0 0);animation:fill 1.6s cubic-bezier(.7,0,.2,1) forwards}
+#pre small{display:block;text-align:center;margin-top:16px;font:500 10px/1 var(--sans);letter-spacing:.5em;color:var(--mute)}
+@keyframes fill{to{clip-path:inset(0 0 0 0)}}
+
+/* cursor */
+.cur{position:fixed;top:0;left:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--gold2);pointer-events:none;z-index:9998;mix-blend-mode:difference}
+.cur-ring{position:fixed;top:0;left:0;width:42px;height:42px;margin:-21px 0 0 -21px;border:1px solid rgba(201,164,92,.6);border-radius:50%;pointer-events:none;z-index:9997;transition:width .3s,height .3s,margin .3s,background .3s}
+.cur-ring.big{width:84px;height:84px;margin:-42px 0 0 -42px;background:rgba(201,164,92,.08)}
+@media(hover:none){.cur,.cur-ring{display:none}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .4s,padding .4s;padding:26px 0}
+nav.solid{background:rgba(14,12,11,.88);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid rgba(201,164,92,.15)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo .crest{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font:italic 500 19px/1 var(--serif);color:var(--gold2)}
+.logo b{display:block;font:500 20px/1 var(--serif);letter-spacing:.02em}
+.logo small{font:500 9px/1 var(--sans);letter-spacing:.38em;color:var(--mute);text-transform:uppercase}
+nav ul{display:flex;gap:34px;list-style:none}
+nav ul a{font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#cfc6b8;position:relative}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-7px;height:1px;width:0;background:var(--gold);transition:width .35s}
+nav ul a:hover::after{width:100%}
+nav .btn{padding:14px 22px}
+@media(max-width:980px){nav ul{display:none}}
+@media(max-width:560px){nav .btn{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:4vw;padding:140px 4vw 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 75% 40%,rgba(122,20,32,.35),transparent 70%),radial-gradient(40% 50% at 10% 90%,rgba(201,164,92,.10),transparent 70%);pointer-events:none}
+.hero-txt{position:relative;z-index:2;max-width:680px;justify-self:end}
+.hero h1{font-size:clamp(52px,7.6vw,124px);margin:28px 0 26px}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.loaded .hero h1 .ln span{transform:none}
+.loaded .hero h1 .ln:nth-child(2) span{transition-delay:.12s}
+.loaded .hero h1 .ln:nth-child(3) span{transition-delay:.24s}
+.hero p.lead{font-size:clamp(16px,1.35vw,19px);color:#d8cfc2;max-width:520px;font-weight:300}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px}
+.facts{display:flex;gap:42px;margin-top:56px;padding-top:30px;border-top:1px solid rgba(201,164,92,.22)}
+.facts div b{display:block;font:400 40px/1 var(--serif);color:var(--gold2)}
+.facts div span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.portrait{position:relative;justify-self:start;width:min(500px,100%);aspect-ratio:3/4}
+.portrait .frame{position:absolute;inset:-18px;border:1px solid rgba(201,164,92,.5);pointer-events:none}
+.portrait .frame::before,.portrait .frame::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--gold)}
+.portrait .frame::before{top:-6px;left:-6px;border-right:0;border-bottom:0}
+.portrait .frame::after{bottom:-6px;right:-6px;border-left:0;border-top:0}
+.portrait canvas{width:100%;height:100%;display:block;background:#1a1512}
+.portrait .tag{position:absolute;left:-46px;bottom:60px;background:var(--red);color:var(--white);padding:16px 22px;font:italic 400 22px/1.1 var(--serif);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.portrait .tag small{display:block;font:600 9px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;font-style:normal}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.4em;color:var(--mute);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:12px}
+.scroll-hint i{width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:drip 2s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:120px}.hero-txt{justify-self:start}.portrait{justify-self:center;order:-1;width:min(380px,84vw);margin:10px 0 30px}.eyebrow{letter-spacing:.2em}.eyebrow::before{width:22px;margin-right:10px}.portrait .tag{left:-14px}}
+
+/* marquee */
+.marquee{border-top:1px solid rgba(201,164,92,.25);border-bottom:1px solid rgba(201,164,92,.25);background:var(--ink2);overflow:hidden;padding:24px 0}
+.marquee .track{display:flex;gap:56px;width:max-content;animation:mq 38s linear infinite}
+.marquee span{font:italic 400 34px/1 var(--serif);color:var(--cream);white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span::after{content:"✦";font-style:normal;font-size:16px;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:150px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:80px;flex-wrap:wrap}
+.sec-head p{max-width:420px;color:#c9c0b3;font-weight:300}
+.sec-head h2{margin-top:22px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(50px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* audience */
+.aud{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,164,92,.22);border:1px solid rgba(201,164,92,.22)}
+.aud article{background:var(--ink);padding:46px 38px 50px;position:relative;overflow:hidden;transition:background .5s}
+.aud article::before{content:"";position:absolute;inset:auto 0 0 0;height:0;background:linear-gradient(0deg,rgba(122,20,32,.55),transparent);transition:height .6s}
+.aud article:hover::before{height:100%}
+.aud .num{font:italic 400 15px/1 var(--serif);color:var(--gold)}
+.aud h3{font-size:32px;margin:44px 0 14px;position:relative}
+.aud p{color:#bfb6a9;font-size:15px;position:relative;font-weight:300}
+@media(max-width:900px){.aud{grid-template-columns:1fr}}
+
+/* before after */
+.ba{background:var(--cream);color:var(--ink)}
+.ba .eyebrow{color:var(--red)}.ba .eyebrow::before{background:var(--red)}
+.ba h2 em{color:var(--red)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid #d9cdb8}
+.ba-col{padding:56px 52px}
+.ba-col+.ba-col{background:var(--ink);color:var(--cream)}
+.ba-col h3{font-size:44px;margin-bottom:34px}
+.ba-col:first-child h3{color:#8c8174;text-decoration:line-through;text-decoration-thickness:1px}
+.ba-col ul{list-style:none}
+.ba-col li{padding:18px 0;border-top:1px solid rgba(0,0,0,.1);display:flex;gap:16px;font-size:16px}
+.ba-col+.ba-col li{border-color:rgba(201,164,92,.2)}
+.ba-col li::before{content:"—";color:#a89b88}
+.ba-col+.ba-col li::before{content:"✦";color:var(--gold)}
+@media(max-width:800px){.ba-grid{grid-template-columns:1fr}.ba-col{padding:40px 28px}}
+
+/* showcase */
+.show-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+.card{position:relative;overflow:hidden;background:#000;aspect-ratio:4/3;grid-column:span 4;display:block;border:1px solid rgba(201,164,92,.18)}
+.card.w{grid-column:span 8;aspect-ratio:auto}
+.card.full{grid-column:span 12;aspect-ratio:21/8}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .8s;filter:saturate(.85) brightness(.8)}
+.card:hover img{transform:scale(1.07);filter:saturate(1.05) brightness(.95)}
+.card .meta{position:absolute;left:0;right:0;bottom:0;padding:26px 28px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);display:flex;justify-content:space-between;align-items:end;gap:20px}
+.card h3{font-size:30px}
+.card small{display:block;font:600 10px/1 var(--sans);letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.card .go{width:50px;height:50px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);flex:none;transition:background .4s,transform .4s}
+.card:hover .go{background:var(--red);border-color:var(--red);transform:rotate(-45deg);color:#fff}
+@media(max-width:900px){.card,.card.w,.card.full{grid-column:span 12;aspect-ratio:4/3}}
+
+/* program */
+.prog{background:var(--ink2)}
+.mod{border-top:1px solid rgba(201,164,92,.25);cursor:pointer}
+.mod:last-child{border-bottom:1px solid rgba(201,164,92,.25)}
+.mod-h{display:grid;grid-template-columns:110px 1fr auto;align-items:center;gap:30px;padding:34px 0;transition:padding .4s}
+.mod-h .n{font:italic 400 54px/1 var(--serif);color:var(--gold3);transition:color .4s}
+.mod-h h3{font-size:clamp(26px,3vw,40px)}
+.mod-h .pl{width:44px;height:44px;border:1px solid rgba(201,164,92,.5);border-radius:50%;position:relative;transition:transform .5s,background .4s}
+.mod-h .pl::before,.mod-h .pl::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1px;background:var(--gold2);transform:translate(-50%,-50%)}
+.mod-h .pl::after{transform:translate(-50%,-50%) rotate(90deg)}
+.mod:hover .n,.mod.open .n{color:var(--gold2)}
+.mod.open .pl{transform:rotate(45deg);background:var(--red);border-color:var(--red)}
+.mod-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1)}
+.mod.open .mod-b{grid-template-rows:1fr}
+.mod-b>div{overflow:hidden}
+.mod-b .in{padding:0 0 40px 140px;display:grid;grid-template-columns:1fr 1fr;gap:12px 50px;color:#cfc6b8;font-weight:300}
+.mod-b .in p{display:flex;gap:12px}.mod-b .in p::before{content:"✦";color:var(--gold);font-size:11px;margin-top:6px}
+.mod-b .in .lead2{grid-column:1/-1;font:italic 400 22px/1.4 var(--serif);color:var(--gold2);margin-bottom:8px}
+@media(max-width:800px){.mod-h{grid-template-columns:60px 1fr auto;gap:16px}.mod-h .n{font-size:36px}.mod-b .in{padding-left:0;grid-template-columns:1fr}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.collage{position:relative;height:720px}
+.collage img{position:absolute;object-fit:cover;box-shadow:0 30px 70px rgba(0,0,0,.6);will-change:transform}
+.collage .a{width:62%;height:78%;left:0;top:0}
+.collage .b{width:46%;height:52%;right:0;bottom:0;border:8px solid var(--ink)}
+.collage .c{width:30%;height:28%;right:6%;top:4%;border:6px solid var(--ink)}
+.about-txt h2{margin:24px 0 34px}
+.about-txt p{color:#cfc6b8;font-weight:300;margin-bottom:20px;font-size:17px}
+.quote{margin:40px 0;padding:30px 34px;border-left:2px solid var(--red);background:linear-gradient(90deg,rgba(122,20,32,.25),transparent);font:italic 400 30px/1.25 var(--serif);color:var(--white)}
+.sign{font:italic 400 44px/1 var(--serif);color:var(--gold2);margin-top:20px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.collage{height:520px}}
+
+/* gallery strip */
+.strip{padding:120px 0 150px;overflow:hidden}
+.strip .row{display:flex;gap:22px;width:max-content;will-change:transform}
+.strip figure{width:300px;flex:none;position:relative}
+.strip figure img{width:300px;height:400px;object-fit:cover;filter:grayscale(.15) contrast(1.02)}
+.strip figcaption{margin-top:14px;font:italic 400 19px/1 var(--serif);color:var(--gold2);display:flex;justify-content:space-between}
+.strip figcaption span{font:500 10px/1.8 var(--sans);letter-spacing:.2em;color:var(--mute);font-style:normal}
+
+/* price */
+.price{background:radial-gradient(70% 60% at 50% 0%,rgba(122,20,32,.35),transparent 70%),var(--ink)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.tier{border:1px solid rgba(201,164,92,.28);padding:46px 38px;display:flex;flex-direction:column;position:relative;background:rgba(23,20,18,.6);transition:transform .5s,border-color .5s}
+.tier:hover{transform:translateY(-8px);border-color:var(--gold)}
+.tier.vip{background:linear-gradient(170deg,#2a0b10,#120d0b 60%);border-color:var(--gold)}
+.tier.vip::before{content:"Рекомендую";position:absolute;top:-13px;left:38px;background:var(--gold);color:#140f0a;font:700 10px/1 var(--sans);letter-spacing:.25em;text-transform:uppercase;padding:8px 14px}
+.tier h3{font-size:42px}
+.tier .sub{color:var(--mute);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
+.tier .cost{font:400 50px/1 var(--serif);color:var(--gold2);margin:34px 0 4px}
+.tier .cost small{font:400 14px var(--sans);color:var(--mute);margin-left:6px}
+.tier ul{list-style:none;margin:28px 0 38px;flex:1}
+.tier li{padding:12px 0;border-top:1px solid rgba(201,164,92,.14);font-size:15px;color:#d4cbbe;font-weight:300;display:flex;gap:12px}
+.tier li::before{content:"✦";color:var(--gold);font-size:10px;margin-top:6px}
+.tier li.off{color:#6d665d;text-decoration:line-through}.tier li.off::before{color:#4d4741}
+.tier .btn{justify-content:center}
+@media(max-width:980px){.tiers{grid-template-columns:1fr}}
+
+/* faq */
+.faq-list{max-width:900px;margin:0 auto}
+.faq{border-bottom:1px solid rgba(201,164,92,.22)}
+.faq button{all:unset;cursor:pointer;display:flex;width:100%;justify-content:space-between;align-items:center;gap:30px;padding:30px 0;font:400 26px/1.25 var(--serif)}
+.faq button i{font-style:normal;color:var(--gold);font:300 30px/1 var(--sans);transition:transform .4s}
+.faq.open button i{transform:rotate(45deg)}
+.faq .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s}
+.faq.open .ans{grid-template-rows:1fr}
+.faq .ans>div{overflow:hidden}
+.faq .ans p{padding:0 0 30px;color:#c9c0b3;font-weight:300;max-width:720px}
+
+/* final */
+.final{padding:190px 0 220px;text-align:center;overflow:hidden;background:var(--ink)}
+.final .bg{position:absolute;inset:0;background:url(img/cream-suit.jpg) center 20%/cover;opacity:.18;filter:grayscale(1)}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,transparent,var(--ink))}
+.final .wrap{position:relative;z-index:2}
+.final h2{font-size:clamp(54px,9vw,150px);margin:26px 0 30px}
+.final p{max-width:560px;margin:0 auto 46px;color:#d0c7ba;font-weight:300;font-size:18px}
+
+footer{border-top:1px solid rgba(201,164,92,.2);padding:50px 0 110px;color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+footer a:hover{color:var(--gold2)}
+
+/* grain */
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:9000;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}}
+</style>
+</head>
+<body>
+<div id="pre"><div><div class="mono">TZ<span>TZ</span></div><small>TATIANA&nbsp;ZHELIKHOVSKAYA</small></div></div>
+<div class="cur"></div><div class="cur-ring"></div>
+
+<nav id="nav"><div class="wrap">
+  <a href="#top" class="logo"><span class="crest">TZ</span><span><b>Татьяна Желиховская</b><small>Нейросети · обучение</small></span></a>
+  <ul><li><a href="#program">Программа</a></li><li><a href="#showcase">Работы</a></li><li><a href="#about">Обо мне</a></li><li><a href="#price">Тарифы</a></li><li><a href="#faq">Вопросы</a></li></ul>
+  <a class="btn btn-gold" data-tl href="#">Записаться</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="hero-txt">
+    <div class="eyebrow">Авторский курс · нейросети с нуля</div>
+    <h1><span class="ln"><span>Нейросети —</span></span><span class="ln"><span><em>ремесло,</em></span></span><span class="ln"><span class="gold-text">которое кормит</span></span></h1>
+    <p class="lead">Научу создавать нейрофотосессии, видео, мультфильмы, песни и сайты с кинематографичной анимацией — и превращать это в заказы. Без английского, без дизайнерского образования, можно с телефона.</p>
+    <div class="cta">
+      <a class="btn btn-gold" data-tl href="#">Занять место <span class="arr">→</span></a>
+      <a class="btn btn-line" href="#program">Смотреть программу</a>
+    </div>
+    <div class="facts">
+      <div><b data-count="7">0</b><span>модулей</span></div>
+      <div><b data-count="6">0</b><span>сайтов-примеров</span></div>
+      <div><b>∞</b><span>идей для заказов</span></div>
+    </div>
+  </div>
+  <div class="portrait">
+    <div class="frame"></div>
+    <canvas id="paint" width="750" height="1000"></canvas>
+    <div class="tag"><small>Образ создан ИИ</small>Это тоже я</div>
+  </div>
+  <div class="scroll-hint"><i></i>Листайте</div>
+</header>
+
+<div class="marquee"><div class="track">
+  <span>Нейрофотосессии</span><span>ИИ-видео</span><span>Мультфильмы</span><span>Песни без студии</span><span>Сайты с анимацией</span><span>Карточки товаров</span><span>Первые заказы</span>
+  <span>Нейрофотосессии</span><span>ИИ-видео</span><span>Мультфильмы</span><span>Песни без студии</span><span>Сайты с анимацией</span><span>Карточки товаров</span><span>Первые заказы</span>
+</div></div>
+
+<section class="sec" id="for">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Для кого</div><h2 class="rv d1">Курс для тех, кто <em>готов</em><br>начать с нуля</h2></div>
+      <p class="rv d2">Не нужно знать код, английский или быть дизайнером. Нужны телефон или ноутбук, интернет и пара часов в неделю.</p>
+    </div>
+    <div class="aud">
+      <article class="rv"><span class="num">I.</span><h3>Мамы в декрете</h3><p>Профессия, которую можно делать, пока ребёнок спит, — и брать заказы из дома.</p></article>
+      <article class="rv d1"><span class="num">II.</span><h3>Новички без опыта</h3><p>Пошагово: от первого промпта до первой работы в портфолио и первого клиента.</p></article>
+      <article class="rv d2"><span class="num">III.</span><h3>SMM и дизайнеры</h3><p>Добавить ИИ-фото, видео и анимированные сайты к своим услугам — и поднять чек.</p></article>
+      <article class="rv"><span class="num">IV.</span><h3>Эксперты и блогеры</h3><p>Делать контент для себя: рилс, обложки, мультики и песни без студии и съёмочной группы.</p></article>
+      <article class="rv d1"><span class="num">V.</span><h3>Фрилансеры</h3><p>Делать быстрее, брать больше заказов, продавать новые услуги, которых нет у конкурентов.</p></article>
+      <article class="rv d2"><span class="num">VI.</span><h3>Те, кто хочет перемен</h3><p>Освоить навык, который будет нужен в любой профессии в ближайшие годы.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec ba">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">Разница</div><h2 class="rv d1">Без ИИ и <em>с ИИ</em></h2></div></div>
+    <div class="ba-grid rv d2">
+      <div class="ba-col"><h3>Без нейросетей</h3><ul><li>Фотосессия — студия, фотограф, визажист и неделя ожидания</li><li>Видео — съёмка, монтаж, дорогой подрядчик</li><li>Песня — студия звукозаписи и аранжировщик</li><li>Сайт — шаблон, как у всех</li><li>Доход привязан к часам работы</li></ul></div>
+      <div class="ba-col"><h3>С нейросетями</h3><ul><li>Фотосессия в любом образе и локации — за вечер</li><li>Видео и мультфильмы по одному промпту</li><li>Песня на заказ — за 15 минут</li><li>Сайт с анимацией, как у премиальных брендов</li><li>Портфолио и услуги, которые продаются</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="showcase">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Витрина</div><h2 class="rv d1">Такие сайты <em>вы научитесь</em><br>делать с нейросетью</h2></div>
+      <p class="rv d2">Каждый пример — живой сайт с анимацией. Откройте и полистайте: так выглядит работа, за которую бренды платят.</p>
+    </div>
+    <div class="show-grid">
+      <a class="card w rv" href="https://tatianaanatolievnadta-ops.github.io/noir-motors/" target="_blank" rel="noopener"><img src="img/demo-auto.jpg" alt="Сайт автомобильного бренда" loading="lazy"><div class="meta"><div><small>01 · Автомобили</small><h3>Noir Motors — премиум-авто</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/portrait-gallery/" target="_blank" rel="noopener"><img src="img/demo-gallery.jpg" alt="Сайт-галерея с картинами" loading="lazy"><div class="meta"><div><small>02 · Картины</small><h3>Галерея Портретов</h3></div><span class="go">→</span></div></a>
+      <a class="card rv" href="https://tatianaanatolievnadta-ops.github.io/breathe/" target="_blank" rel="noopener"><img src="img/demo-breathe.jpg" alt="Сайт-история Breathe" loading="lazy"><div class="meta"><div><small>03 · Сторителлинг</small><h3>Дыхание</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/synapse/" target="_blank" rel="noopener"><img src="img/demo-synapse.jpg" alt="Сайт Synapse" loading="lazy"><div class="meta"><div><small>04 · Технологии</small><h3>Synapse</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d2" href="https://tatianaanatolievnadta-ops.github.io/velmont/" target="_blank" rel="noopener"><img src="img/demo-architecture.jpg" alt="Сайт девелопера" loading="lazy"><div class="meta"><div><small>05 · Архитектура</small><h3>Velmont</h3></div><span class="go">→</span></div></a>
+      <a class="card full rv" href="https://tatianaanatolievnadta-ops.github.io/dubai-night/" target="_blank" rel="noopener"><img src="img/demo-city.jpg" alt="Сайт ночного города" loading="lazy"><div class="meta"><div><small>06 · Недвижимость · Дубай</small><h3>Ночной город — ваша дверь в Дубай</h3></div><span class="go">→</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec prog" id="program">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Программа</div><h2 class="rv d1">Семь модулей —<br><em>от промпта до заказа</em></h2></div>
+      <p class="rv d2">Каждый модуль заканчивается готовой работой для портфолио. Нажмите на модуль, чтобы раскрыть.</p>
+    </div>
+    <div class="mods">
+      <div class="mod open rv"><div class="mod-h"><span class="n">01</span><h3>Визуал в нейросетях</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Учимся «разговаривать» с нейросетью так, чтобы она делала ровно то, что задумали.</p><p>Как устроен промпт: сюжет, свет, стиль, камера</p><p>Серии картинок в едином стиле</p><p>Свой стиль и узнаваемость</p><p>Исправление ошибок генерации</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">02</span><h3>Нейрофотосессии</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Фотосессии с лицом клиента в любом образе — как на этом сайте.</p><p>Сохранение сходства лица</p><p>Образы, локации, ракурсы</p><p>Фото для соцсетей и маркетплейсов</p><p>Ретушь и финальная обработка</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">03</span><h3>Видео и мультфильмы</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Оживляем фото, создаём персонажей и снимаем рилс без съёмочной группы.</p><p>Анимация фото и персонажей</p><p>Мультфильмы для детей и брендов</p><p>Озвучка и липсинк на русском</p><p>Монтаж рилс с титрами</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">04</span><h3>Песни с ИИ</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Моё любимое направление: песня на заказ без студии и музыкального образования.</p><p>Текст песни под повод и человека</p><p>Жанр, голос, настроение</p><p>Клип к песне</p><p>Как продавать песни на заказ</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">05</span><h3>Сайты с анимацией</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Сайты, как в витрине выше, — с помощью нейросети, без знания кода.</p><p>Лендинг для эксперта и бренда</p><p>Кинематографичная анимация при прокрутке</p><p>Публикация сайта бесплатно</p><p>Как продавать сайты бизнесу</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">06</span><h3>Карточки и визуал для бизнеса</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">То, что бизнес покупает каждый месяц.</p><p>Карточки для маркетплейсов</p><p>Инфографика</p><p>Презентации в стиле бренда</p><p>Карусели и обложки для соцсетей</p></div></div></div></div>
+      <div class="mod rv"><div class="mod-h"><span class="n">07</span><h3>Портфолио и первые заказы</h3><span class="pl"></span></div><div class="mod-b"><div><div class="in"><p class="lead2">Упаковываем навык в услугу и выходим к клиентам.</p><p>Портфолио, которое продаёт</p><p>Где искать клиентов</p><p>Как назначать цену</p><p>Шаблоны сообщений и предложений</p></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="collage">
+      <img class="a" data-par="-0.06" src="img/rooftop.jpg" alt="Татьяна Желиховская" loading="lazy">
+      <img class="b" data-par="0.08" src="img/phone-laptop.jpg" alt="Татьяна за работой" loading="lazy">
+      <img class="c" data-par="-0.14" src="img/close.jpg" alt="Портрет Татьяны" loading="lazy">
+    </div>
+    <div class="about-txt">
+      <div class="eyebrow rv">Обо мне</div>
+      <h2 class="rv d1">Татьяна<br><em>Желиховская</em></h2>
+      <p class="rv d2">Мама, создательница ИИ-видео, мультфильмов и песен без студии. Все образы на этом сайте я создала нейросетью — с собственным лицом.</p>
+      <p class="rv d2">Я начинала с нуля, как и вы. Первые 100&nbsp;000&nbsp;₽ на ИИ-песнях я заработала ещё в декрете, а первая песня на заказ принесла 10&nbsp;000&nbsp;₽.</p>
+      <div class="quote rv d3">«Нейросеть не заменит вас. Вас заменит человек, который умеет с ней работать».</div>
+      <p class="rv d3">Instagram: <a href="https://instagram.com/neuromoms.tata" target="_blank" rel="noopener" style="color:var(--gold2)">@neuromoms.tata</a></p>
+      <div class="sign rv d4">Татьяна Ж.</div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap" style="margin-bottom:60px"><div class="eyebrow rv">Нейрофотосессия</div><h2 class="rv d1" style="margin-top:22px">Одно лицо — <em>сколько угодно образов</em></h2></div>
+  <div class="row" id="row">
+    <figure><img src="img/avatar.jpg" alt="" loading="lazy"><figcaption>Портрет<span>I</span></figcaption></figure>
+    <figure><img src="img/coffee.jpg" alt="" loading="lazy"><figcaption>Прогулка<span>II</span></figcaption></figure>
+    <figure><img src="img/red-suit.jpg" alt="" loading="lazy"><figcaption>Акцент<span>III</span></figcaption></figure>
+    <figure><img src="img/laptop-plants.jpg" alt="" loading="lazy"><figcaption>Оранжерея<span>IV</span></figcaption></figure>
+    <figure><img src="img/cream-suit.jpg" alt="" loading="lazy"><figcaption>Студия<span>V</span></figcaption></figure>
+    <figure><img src="img/floor-laptop.jpg" alt="" loading="lazy"><figcaption>Дом<span>VI</span></figcaption></figure>
+    <figure><img src="img/red-low.jpg" alt="" loading="lazy"><figcaption>Ракурс<span>VII</span></figcaption></figure>
+    <figure><img src="img/rooftop.jpg" alt="" loading="lazy"><figcaption>Крыша<span>VIII</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="sec price" id="price">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center"><div><div class="eyebrow rv">Тарифы</div><h2 class="rv d1">Выберите <em>свой формат</em></h2></div></div>
+    <!-- ЦЕНЫ: замените XX XXX на свои суммы -->
+    <div class="tiers">
+      <div class="tier rv"><h3>Сама</h3><div class="sub">Самостоятельно</div><div class="cost">XX XXX ₽</div><ul><li>Модули 1–4</li><li>Уроки в записи</li><li>Шаблоны промптов</li><li class="off">Обратная связь</li><li class="off">Сайты с анимацией</li></ul><a class="btn btn-line" data-tl href="#">Выбрать</a></div>
+      <div class="tier vip rv d1"><h3>С Татьяной</h3><div class="sub">С обратной связью</div><div class="cost">XX XXX ₽</div><ul><li>Все 7 модулей</li><li>Проверка домашних заданий</li><li>Сайты с анимацией</li><li>Песни на заказ: как продавать</li><li>Общий чат и эфиры</li></ul><a class="btn btn-gold" data-tl href="#">Занять место</a></div>
+      <div class="tier rv d2"><h3>VIP</h3><div class="sub">Личная работа</div><div class="cost">XX XXX ₽</div><ul><li>Всё из тарифа «С Татьяной»</li><li>Личные созвоны</li><li>Разбор портфолио</li><li>Помощь с первыми клиентами</li><li>Ограниченное число мест</li></ul><a class="btn btn-line" data-tl href="#">Выбрать</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head" style="justify-content:center;text-align:center"><div><div class="eyebrow rv">Вопросы</div><h2 class="rv d1">Частые <em>вопросы</em></h2></div></div>
+    <div class="faq-list">
+      <div class="faq rv"><button>Подойдёт ли курс, если я совсем новичок?<i>+</i></button><div class="ans"><div><p>Да. Курс построен с нуля: первые уроки — о том, как зарегистрироваться и написать первый запрос. Опыт в дизайне и программировании не нужен.</p></div></div></div>
+      <div class="faq rv"><button>Можно учиться с телефона?<i>+</i></button><div class="ans"><div><p>Большинство заданий можно делать с телефона. Для сайтов удобнее ноутбук, но он не обязателен на старте.</p></div></div></div>
+      <div class="faq rv"><button>Сколько времени нужно в неделю?<i>+</i></button><div class="ans"><div><p>Достаточно нескольких часов в неделю. Уроки остаются в записи — можно учиться в удобное время, совмещая с работой и детьми.</p></div></div></div>
+      <div class="faq rv"><button>Нужно ли платить за нейросети?<i>+</i></button><div class="ans"><div><p>Многие задачи можно решить в бесплатных версиях. В курсе я показываю, где хватит бесплатного, а где стоит взять подписку.</p></div></div></div>
+      <div class="faq rv"><button>Как с вами связаться, если остались вопросы?<i>+</i></button><div class="ans"><div><p>Напишите мне — кнопка внизу страницы ведёт прямо ко мне. Отвечаю лично.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="bg"></div>
+  <div class="wrap">
+    <div class="eyebrow rv" style="justify-content:center">Долистали до конца?</div>
+    <h2 class="rv d1">Значит, это <em class="gold-text">ваше</em></h2>
+    <p class="rv d2">Через год умение работать с нейросетями будет таким же обычным, как умение пользоваться телефоном. Начните сейчас.</p>
+    <a class="btn btn-gold rv d3" data-tl href="#">Хочу на курс <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div>© <span id="yr"></span> Татьяна Желиховская · Обучение нейросетям</div>
+  <div>Все образы на сайте созданы нейросетью</div>
+  <a data-tl href="#">Связаться</a>
+</div></footer>
+
+<script src="link.js"></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+// preloader
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('pre').classList.add('done');document.body.classList.add('loaded');startPaint()},1400)});
+setTimeout(()=>{if(!document.body.classList.contains('loaded')){document.getElementById('pre').classList.add('done');document.body.classList.add('loaded');startPaint()}},4000);
+
+// cursor
+const cur=document.querySelector('.cur'),ring=document.querySelector('.cur-ring');let mx=0,my=0,rx=0,ry=0;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx}px,${my}px)`});
+(function loop(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.mod-h').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('big'));el.addEventListener('mouseleave',()=>ring.classList.remove('big'))});
+
+// nav
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// counters
+document.querySelectorAll('[data-count]').forEach(el=>{const t=+el.dataset.count;let s=null;const go=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1600,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(go)};setTimeout(()=>requestAnimationFrame(go),1900)});
+
+// accordions
+document.querySelectorAll('.mod-h').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
+document.querySelectorAll('.faq button').forEach(b=>b.addEventListener('click',()=>b.parentElement.classList.toggle('open')));
+
+// parallax + horizontal strip
+const pars=[...document.querySelectorAll('[data-par]')],row=document.getElementById('row');
+function onScroll(){
+  pars.forEach(el=>{const r=el.parentElement.getBoundingClientRect();const c=r.top+r.height/2-innerHeight/2;el.style.transform=`translateY(${c*el.dataset.par}px)`});
+  const r=row.parentElement.getBoundingClientRect();const p=(innerHeight-r.top)/(innerHeight+r.height);
+  row.style.transform=`translateX(${-p*(row.scrollWidth-innerWidth*.6)+innerWidth*.05}px)`;
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// magnetic buttons
+document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+
+// hero: portrait "painted" by brush strokes
+let painted=false;
+function startPaint(){
+  if(painted)return;painted=true;
+  const cv=document.getElementById('paint'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  const img=new Image();img.src='img/red-suit.jpg';
+  img.onload=()=>{
+    const sc=Math.max(W/img.width,H/img.height),iw=img.width*sc,ih=img.height*sc,ox=(W-iw)/2,oy=(H-ih)/2;
+    const src=document.createElement('canvas');src.width=W;src.height=H;const s=src.getContext('2d');s.drawImage(img,ox,oy,iw,ih);
+    // blurred copy for the first rough strokes, sharp copy for the fine ones (works even when opened as a local file)
+    const soft=document.createElement('canvas');soft.width=W;soft.height=H;const sf=soft.getContext('2d');sf.filter='blur(6px) saturate(1.2)';sf.drawImage(src,0,0);
+    const patSoft=ctx.createPattern(soft,'no-repeat'),patSharp=ctx.createPattern(src,'no-repeat');
+    let n=0;const total=2600;
+    function stroke(size){
+      const x=Math.random()*W,y=Math.random()*H;
+      ctx.strokeStyle=size>10?patSoft:patSharp;ctx.globalAlpha=.9;ctx.lineWidth=size;ctx.lineCap='round';
+      const a=Math.random()*Math.PI*2,l=size*(1.5+Math.random()*2.5);
+      ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+Math.cos(a+.6)*l*.5,y+Math.sin(a+.6)*l*.5,x+Math.cos(a)*l,y+Math.sin(a)*l);ctx.stroke();
+    }
+    (function frame(){
+      for(let k=0;k<40;k++){const p=n/total;stroke(p<.35?38:p<.7?16:6);n++}
+      if(n<total)requestAnimationFrame(frame);
+      else{let o=0;(function fade(){o+=.025;ctx.globalAlpha=o;ctx.drawImage(src,0,0);ctx.globalAlpha=1;if(o<1)requestAnimationFrame(fade)})()}
+    })();
+  };
+}
+</script>
+</body>
+</html>
