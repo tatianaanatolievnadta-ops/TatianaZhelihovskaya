@@ -144,17 +144,25 @@ section{position:relative}
 
 /* showcase */
 .show-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-.card{position:relative;overflow:hidden;background:#000;aspect-ratio:4/3;grid-column:span 4;display:block;border:1px solid rgba(201,164,92,.18)}
-.card.w{grid-column:span 8;aspect-ratio:auto}
-.card.full{grid-column:span 12;aspect-ratio:21/8}
-.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .8s;filter:saturate(.85) brightness(.8)}
-.card:hover img{transform:scale(1.07);filter:saturate(1.05) brightness(.95)}
-.card .meta{position:absolute;left:0;right:0;bottom:0;padding:26px 28px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);display:flex;justify-content:space-between;align-items:end;gap:20px}
-.card h3{font-size:30px}
+.card{position:relative;overflow:hidden;background:#000;aspect-ratio:4/3;grid-column:span 4;display:block;border:1px solid rgba(201,164,92,.18);isolation:isolate}
+.card.w{grid-column:span 8;aspect-ratio:auto;min-height:420px}
+.card.full{grid-column:span 12;aspect-ratio:21/8;min-height:320px}
+.card::before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(120% 80% at var(--mx,50%) var(--my,50%),rgba(227,200,134,.18),transparent 42%);opacity:0;transition:opacity .5s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.8,.2,1),filter 1s,clip-path 1.2s cubic-bezier(.2,.8,.2,1);filter:saturate(.8) brightness(.72) contrast(1.05);clip-path:inset(8% 8% 8% 8%);transform:scale(1.12)}
+.card.in img,.card:hover img{clip-path:inset(0 0 0 0);transform:scale(1.02);filter:saturate(1.05) brightness(.92)}
+.card:hover img{transform:scale(1.1)}
+.card .shine{position:absolute;inset:0;z-index:1;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 48%,transparent 62%);transform:translateX(-120%);pointer-events:none}
+.card:hover .shine{animation:cardshine 1.1s ease}
+@keyframes cardshine{to{transform:translateX(120%)}}
+.card .meta{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:28px 30px;background:linear-gradient(0deg,rgba(0,0,0,.9) 10%,rgba(0,0,0,.35) 70%,transparent);display:flex;justify-content:space-between;align-items:end;gap:20px;transform:translateY(8px);opacity:.92;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.card:hover .meta,.card.in .meta{transform:none;opacity:1}
+.card h3{font-size:clamp(24px,2.4vw,34px)}
 .card small{display:block;font:600 10px/1 var(--sans);letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
-.card .go{width:50px;height:50px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);flex:none;transition:background .4s,transform .4s}
-.card:hover .go{background:var(--red);border-color:var(--red);transform:rotate(-45deg);color:#fff}
-@media(max-width:900px){.card,.card.w,.card.full{grid-column:span 12;aspect-ratio:4/3}}
+.card .go{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);flex:none;transition:background .4s,transform .55s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s}
+.card:hover .go{background:var(--red);border-color:var(--red);transform:rotate(-45deg) scale(1.06);color:#fff;box-shadow:0 10px 30px rgba(122,20,32,.45)}
+.show-note{margin-top:28px;color:var(--mute);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:900px){.card,.card.w,.card.full{grid-column:span 12;aspect-ratio:4/3;min-height:0}}
 
 /* program */
 .prog{background:var(--ink2)}
@@ -264,7 +272,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:900
     </div>
     <div class="facts">
       <div><b data-count="7">0</b><span>модулей</span></div>
-      <div><b data-count="6">0</b><span>сайтов-примеров</span></div>
+      <div><b data-count="7">0</b><span>сайтов-примеров</span></div>
       <div><b>∞</b><span>идей для заказов</span></div>
     </div>
   </div>
@@ -311,17 +319,19 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:900
 <section class="sec" id="showcase">
   <div class="wrap">
     <div class="sec-head">
-      <div><div class="eyebrow rv">Витрина</div><h2 class="rv d1">Такие сайты <em>вы научитесь</em><br>делать с нейросетью</h2></div>
-      <p class="rv d2">Каждый пример — живой сайт с анимацией. Откройте и полистайте: так выглядит работа, за которую бренды платят.</p>
+      <div><div class="eyebrow rv">Витрина · 7 живых сайтов</div><h2 class="rv d1">Такие сайты <em>вы научитесь</em><br>делать с нейросетью</h2></div>
+      <p class="rv d2">Каждый пример — живой сайт с кинематографичной анимацией. Откройте и полистайте: так выглядит работа, за которую бренды платят.</p>
     </div>
     <div class="show-grid">
-      <a class="card w rv" href="https://tatianaanatolievnadta-ops.github.io/noir-motors/" target="_blank" rel="noopener"><img src="img/demo-auto.jpg" alt="Сайт автомобильного бренда" loading="lazy"><div class="meta"><div><small>01 · Автомобили</small><h3>Noir Motors — премиум-авто</h3></div><span class="go">→</span></div></a>
-      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/portrait-gallery/" target="_blank" rel="noopener"><img src="img/demo-gallery.jpg" alt="Сайт-галерея с картинами" loading="lazy"><div class="meta"><div><small>02 · Картины</small><h3>Галерея Портретов</h3></div><span class="go">→</span></div></a>
-      <a class="card rv" href="https://tatianaanatolievnadta-ops.github.io/breathe/" target="_blank" rel="noopener"><img src="img/demo-breathe.jpg" alt="Сайт-история Breathe" loading="lazy"><div class="meta"><div><small>03 · Сторителлинг</small><h3>Дыхание</h3></div><span class="go">→</span></div></a>
-      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/synapse/" target="_blank" rel="noopener"><img src="img/demo-synapse.jpg" alt="Сайт Synapse" loading="lazy"><div class="meta"><div><small>04 · Технологии</small><h3>Synapse</h3></div><span class="go">→</span></div></a>
-      <a class="card rv d2" href="https://tatianaanatolievnadta-ops.github.io/velmont/" target="_blank" rel="noopener"><img src="img/demo-architecture.jpg" alt="Сайт девелопера" loading="lazy"><div class="meta"><div><small>05 · Архитектура</small><h3>Velmont</h3></div><span class="go">→</span></div></a>
-      <a class="card full rv" href="https://tatianaanatolievnadta-ops.github.io/dubai-night/" target="_blank" rel="noopener"><img src="img/demo-city.jpg" alt="Сайт ночного города" loading="lazy"><div class="meta"><div><small>06 · Недвижимость · Дубай</small><h3>Ночной город — ваша дверь в Дубай</h3></div><span class="go">→</span></div></a>
+      <a class="card w rv" href="https://tatianaanatolievnadta-ops.github.io/noir-motors/" target="_blank" rel="noopener"><img src="img/demo-auto.jpg" alt="Сайт автомобильного бренда" loading="lazy"><span class="shine"></span><div class="meta"><div><small>01 · Автомобили</small><h3>Noir Motors — премиум-авто</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/portrait-gallery/" target="_blank" rel="noopener"><img src="img/demo-gallery.jpg" alt="Сайт-галерея с картинами" loading="lazy"><span class="shine"></span><div class="meta"><div><small>02 · Картины</small><h3>Галерея Портретов</h3></div><span class="go">→</span></div></a>
+      <a class="card rv" href="https://tatianaanatolievnadta-ops.github.io/breathe/" target="_blank" rel="noopener"><img src="img/demo-breathe.jpg" alt="Сайт-история Breathe" loading="lazy"><span class="shine"></span><div class="meta"><div><small>03 · Сторителлинг</small><h3>Breathe — дыхание</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d1" href="https://tatianaanatolievnadta-ops.github.io/synapse/" target="_blank" rel="noopener"><img src="img/demo-synapse.jpg" alt="Сайт Synapse" loading="lazy"><span class="shine"></span><div class="meta"><div><small>04 · Технологии</small><h3>Synapse</h3></div><span class="go">→</span></div></a>
+      <a class="card rv d2" href="https://tatianaanatolievnadta-ops.github.io/velmont/" target="_blank" rel="noopener"><img src="img/demo-architecture.jpg" alt="Сайт девелопера" loading="lazy"><span class="shine"></span><div class="meta"><div><small>05 · Архитектура</small><h3>Velmont</h3></div><span class="go">→</span></div></a>
+      <a class="card full rv" href="https://tatianaanatolievnadta-ops.github.io/dubai-night/" target="_blank" rel="noopener"><img src="img/demo-city.jpg" alt="Сайт ночного города" loading="lazy"><span class="shine"></span><div class="meta"><div><small>06 · Недвижимость · Дубай</small><h3>Dubai Night — ночной город</h3></div><span class="go">→</span></div></a>
+      <a class="card full rv" href="https://tatianaanatolievnadta-ops.github.io/vyberi-sebya/" target="_blank" rel="noopener"><img src="img/demo-vyberi.jpg" alt="Сайт Выбери себя первой" loading="lazy"><span class="shine"></span><div class="meta"><div><small>07 · Личный бренд · женщины</small><h3>Выбери себя первой</h3></div><span class="go">→</span></div></a>
     </div>
+    <p class="show-note rv">Наведите · нажмите · откроется живой сайт</p>
   </div>
 </section>
 
@@ -455,6 +465,23 @@ addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 // magnetic buttons
 document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+
+// showcase spotlight + magnetic arrow
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width*100).toFixed(2);
+    const y=((e.clientY-r.top)/r.height*100).toFixed(2);
+    card.style.setProperty('--mx',x+'%');
+    card.style.setProperty('--my',y+'%');
+    const go=card.querySelector('.go');
+    if(go) go.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.04}px,${(e.clientY-r.top-r.height/2)*.04}px) rotate(-45deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    const go=card.querySelector('.go');
+    if(go) go.style.transform='';
+  });
+});
 
 // hero: portrait "painted" by brush strokes
 let painted=false;
